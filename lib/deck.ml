@@ -1,7 +1,7 @@
 module type Card = sig
   type t
 
-  val compare : t -> t -> int
+  val create_deck : t list
   val to_string : t -> string
 end
 
@@ -9,6 +9,7 @@ module type Deck = sig
   type card
   type t
 
+  val init : t
   val shuffle : t -> t
   val draw : t -> card * t
   val to_string : t -> string
@@ -17,6 +18,8 @@ end
 module Make (C : Card) : Deck with type card = C.t = struct
   type card = C.t
   type t = card list
+
+  let init = C.create_deck
 
   let shuffle deck =
     let arr = Array.of_list deck in

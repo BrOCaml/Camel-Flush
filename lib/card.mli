@@ -19,7 +19,7 @@ type rank =
   | King
   | Ace
 
-type t = suit * rank
+type t
 (**representation type of the card*)
 
 val compare : t -> t -> int
@@ -32,5 +32,14 @@ val to_string : t -> string
 val rank_to_int : rank -> int
 (**[rank_to_int r] is the integer representation of r*)
 
+val rank_int_of_card : t -> int
+(**[rank_int_of_card t] is the integer representation of the rank of t*)
+
 val create_deck : t list
 (**[create_deck] is the list of all cards in a deck*)
+
+val suit : t -> suit
+(**[suit t] is the suit of t*)
+
+val rank : t -> rank
+(**[rank t] is the rank of t*)

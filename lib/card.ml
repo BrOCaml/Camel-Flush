@@ -67,6 +67,9 @@ let to_string (s, r) =
   in
   rank_str ^ suit_str
 
+let suit (t : t) = fst t
+let rank (t : t) = snd t
+
 let create_deck =
   let suits = [ Clubs; Diamonds; Hearts; Spades ] in
   let ranks =
@@ -87,3 +90,5 @@ let create_deck =
     ]
   in
   List.map (fun s -> List.map (fun r -> (s, r)) ranks) suits |> List.flatten
+
+let rank_int_of_card t = rank_to_int (rank t)

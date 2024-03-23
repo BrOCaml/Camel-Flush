@@ -31,3 +31,6 @@ val to_string : t -> string
 
 val rank_to_int : rank -> int
 (**[rank_to_int r] is the integer representation of r*)
+
+val create_deck : t list
+(**[create_deck] is the list of all cards in a deck*)

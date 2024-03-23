@@ -66,3 +66,24 @@ let to_string (s, r) =
     | Ace -> "A"
   in
   rank_str ^ suit_str
+
+let create_deck =
+  let suits = [ Clubs; Diamonds; Hearts; Spades ] in
+  let ranks =
+    [
+      Two;
+      Three;
+      Four;
+      Five;
+      Six;
+      Seven;
+      Eight;
+      Nine;
+      Ten;
+      Jack;
+      Queen;
+      King;
+      Ace;
+    ]
+  in
+  List.map (fun s -> List.map (fun r -> (s, r)) ranks) suits |> List.flatten

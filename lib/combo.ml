@@ -52,3 +52,44 @@ let is_straight combo =
          (acc && Card.rank_int_of_card x = prev + 1, Card.rank_int_of_card x))
        (true, Card.rank_int_of_card (List.hd combo))
        combo)
+
+let is_four_of_a_kind combo =
+  let first_four = List.tl (List.rev combo) in
+  let last_four = List.tl combo in
+  let same = List.for_all (fun x -> Card.rank x = Card.rank (List.hd combo)) in
+  same first_four || same last_four
+
+let is_full_house combo =
+  if List.length (List.sort_uniq Card.compare_rank combo) = 2 then
+    let count1 = List.length (List.filter (fun x -> x = List.hd combo) combo) in
+    let count2 =
+      List.length (List.filter (fun x -> x = List.nth combo 1) combo)
+    in
+    (count1 = 2 && count2 = 3) || (count1 = 3 && count2 = 2)
+  else false
+
+let is_two_pair combo =
+  if List.length (List.sort_uniq Card.compare combo) = 3 then
+    let count1 = List.length (List.filter (fun x -> x = List.hd combo) combo) in
+    let count2 =
+      List.length (List.filter (fun x -> x = List.nth combo 1) combo)
+    in
+    let count3 =
+      List.length (List.filter (fun x -> x = List.nth combo 2) combo)
+    in
+    (count1 = 2 && count2 = 2)
+    || (count1 = 2 && count3 = 2)
+    || (count2 = 2 && count3 = 2)
+  else false
+
+let is_three_of_a_kind combo =
+  if List.length (List.sort_uniq Card.compare combo) = 3 then
+    let count1 = List.length (List.filter (fun x -> x = List.hd combo) combo) in
+    let count2 =
+      List.length (List.filter (fun x -> x = List.nth combo 1) combo)
+    in
+    let count3 =
+      List.length (List.filter (fun x -> x = List.nth combo 2) combo)
+    in
+    count1 = 3 || count2 = 3 || count3 = 3
+  else false

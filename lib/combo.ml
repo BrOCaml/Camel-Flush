@@ -52,3 +52,8 @@ let is_straight combo =
          (acc && Card.rank_int_of_card x = prev + 1, Card.rank_int_of_card x))
        (true, Card.rank_int_of_card (List.hd combo))
        combo)
+
+let is_straight_flush combo = is_straight combo && is_flush combo
+
+let is_royal_flush combo =
+  is_straight_flush combo && Card.rank_int_of_card (List.hd combo) = 10

@@ -93,3 +93,8 @@ let is_three_of_a_kind combo =
     in
     count1 = 3 || count2 = 3 || count3 = 3
   else false
+
+let is_straight_flush combo = is_straight combo && is_flush combo
+
+let is_royal_flush combo =
+  is_straight_flush combo && Card.rank_int_of_card (List.hd combo) = 10

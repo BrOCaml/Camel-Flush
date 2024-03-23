@@ -41,7 +41,7 @@ let compare (s1, r1) (s2, r2) =
   | 0 -> compare s1 s2
   | n -> n
 
-let compare_rank (_, r1) (_, r2) = compare r1 r2
+let compare_rank (_, r1) ((_, r2) : suit * rank) = Stdlib.compare r1 r2
 
 let to_string (s, r) =
   let suit_str =

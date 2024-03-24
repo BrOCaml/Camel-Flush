@@ -62,6 +62,27 @@ let card_suite =
 
 let test_combo_map cards f _ = assert_bool (Combo.to_string cards) (f cards)
 
+let test_new_combo_sort _ =
+  let cards =
+    [
+      (Hearts, Two);
+      (Hearts, King);
+      (Hearts, Four);
+      (Hearts, Eight);
+      (Hearts, Six);
+    ]
+  in
+  let sorted_cards =
+    [
+      (Hearts, Two);
+      (Hearts, Four);
+      (Hearts, Six);
+      (Hearts, Eight);
+      (Hearts, King);
+    ]
+  in
+  assert_equal sorted_cards (Combo.to_list (Combo.new_combo cards))
+
 let test_is_flush =
   let cards =
     [
@@ -221,6 +242,30 @@ let test_is_three_of_a_kind =
   in
   test_combo_map (Combo.new_combo cards) Combo.is_three_of_a_kind
 
+let test_is_three_of_a_kind_two =
+  let cards =
+    [
+      (Hearts, Two);
+      (Diamonds, Three);
+      (Clubs, Three);
+      (Spades, Three);
+      (Hearts, Four);
+    ]
+  in
+  test_combo_map (Combo.new_combo cards) Combo.is_three_of_a_kind
+
+let test_is_three_of_a_kind_three =
+  let cards =
+    [
+      (Hearts, Two);
+      (Diamonds, Three);
+      (Clubs, Four);
+      (Spades, Four);
+      (Hearts, Four);
+    ]
+  in
+  test_combo_map (Combo.new_combo cards) Combo.is_three_of_a_kind
+
 let test_is_three_of_a_kind_fail _ =
   let cards =
     [
@@ -285,6 +330,7 @@ let test_is_one_pair_fail _ =
 let combo_test_suite =
   "card combo test suite"
   >::: [
+         "test_new_combo_sort" >:: test_new_combo_sort;
          "test_is_flush" >:: test_is_flush;
          "test_is_flush_fail" >:: test_is_flush_fail;
          "test_is_straight" >:: test_is_straight;
@@ -298,6 +344,8 @@ let combo_test_suite =
          "test_is_four_of_a_kind_fail" >:: test_is_four_of_a_kind_fail;
          "test_is_full_house" >:: test_is_full_house;
          "test_is_three_of_a_kind" >:: test_is_three_of_a_kind;
+         "test_is_three_of_a_kind_two" >:: test_is_three_of_a_kind_two;
+         "test_is_three_of_a_kind_three" >:: test_is_three_of_a_kind_three;
          "test_is_three_of_a_kind_fail" >:: test_is_three_of_a_kind_fail;
          "test_is_two_pair" >:: test_is_two_pair;
          "test_is_two_pair_fail" >:: test_is_two_pair_fail;

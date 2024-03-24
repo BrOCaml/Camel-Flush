@@ -42,7 +42,7 @@ module type Game = sig
   type t
   (** The type of the game status *)
 
-  val init : t
+  val init : int -> t
   (** [init] is the initial game status *)
 
   val deal : t -> t

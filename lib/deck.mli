@@ -1,13 +1,16 @@
 module type Card = sig
   type t
 
-  val compare : t -> t -> int
+  val create_deck : t list
   val to_string : t -> string
 end
 
 module type Deck = sig
   type card
   type t
+
+  val init : t
+  (** [init ()] is a new deck of cards. *)
 
   val shuffle : t -> t
   (** [shuffle d] is the deck [d] with its cards shuffled. *)

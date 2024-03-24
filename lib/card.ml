@@ -41,6 +41,8 @@ let compare (s1, r1) (s2, r2) =
   | 0 -> compare s1 s2
   | n -> n
 
+let compare_rank (_, r1) (_, r2) = Int.compare (rank_to_int r1) (rank_to_int r2)
+
 let to_string (s, r) =
   let suit_str =
     match s with
@@ -66,3 +68,29 @@ let to_string (s, r) =
     | Ace -> "A"
   in
   rank_str ^ suit_str
+
+let suit (t : t) = fst t
+let rank (t : t) = snd t
+
+let create_deck =
+  let suits = [ Clubs; Diamonds; Hearts; Spades ] in
+  let ranks =
+    [
+      Two;
+      Three;
+      Four;
+      Five;
+      Six;
+      Seven;
+      Eight;
+      Nine;
+      Ten;
+      Jack;
+      Queen;
+      King;
+      Ace;
+    ]
+  in
+  List.map (fun s -> List.map (fun r -> (s, r)) ranks) suits |> List.flatten
+
+let rank_int_of_card t = rank_to_int (rank t)

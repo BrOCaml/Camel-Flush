@@ -302,7 +302,7 @@ let combo_test_suite =
          "test_is_two_pair" >:: test_is_two_pair;
          "test_is_two_pair_fail" >:: test_is_two_pair_fail;
          "test_is_one_pair" >:: test_is_one_pair;
-         "test_is_pair_fail" >:: test_is_pair_fail;
+         "test_is_pair_fail" >:: test_is_one_pair_fail;
        ]
 
 let test_suite = "set test suite" >::: tests

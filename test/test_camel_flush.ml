@@ -11,8 +11,23 @@ let new_deck =
 
 let tests =
   [
-    ( "empty" >:: fun _ ->
+    ( "test_empty" >:: fun _ ->
       assert_equal new_deck (PokerDeck.to_string PokerDeck.init) );
+    ( "test_valid_combo_length" >:: fun _ ->
+      let new_combo =
+        Combo.new_combo
+          [
+            (Hearts, Two);
+            (Hearts, Three);
+            (Hearts, Four);
+            (Hearts, Five);
+            (Hearts, Six);
+          ]
+      in
+      assert_equal 5 (List.length (Combo.to_list new_combo)) );
+    ( "test_invalid_combo_length" >:: fun _ ->
+      assert_raises (Failure "Invalid combo") (fun () ->
+          Combo.new_combo [ (Hearts, Two); (Hearts, Three); (Hearts, Four) ]) );
   ]
 
 (*card test*)

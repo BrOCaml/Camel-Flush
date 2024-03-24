@@ -1,3 +1,5 @@
 (test
  (name test_camel_flush)
- (libraries ounit2 camel_flush))
+ (libraries ounit2 camel_flush)
+ (instrumentation
+  (backend bisect_ppx)))

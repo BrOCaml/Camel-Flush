@@ -94,7 +94,7 @@ let deck_suite =
          "test_to_string" >:: test_to_string;
        ]
 
-(** combo tests*)
+(** combo tests *)
 let test_combo_map cards f _ = assert_bool (Combo.to_string cards) (f cards)
 
 let test_new_combo_sort _ =

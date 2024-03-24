@@ -1,8 +1,6 @@
 open OUnit2
 open Camel_flush
 open PokerCard
-module PokerDeck = Deck.Make (PokerCard)
-module Player = Player.Make (PokerCard)
 
 let new_deck =
   "[2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; \
@@ -11,8 +9,7 @@ let new_deck =
 
 let tests =
   [
-    ( "test_empty" >:: fun _ ->
-      assert_equal new_deck (PokerDeck.to_string PokerDeck.init) );
+    ("test_empty" >:: fun _ -> assert_equal new_deck (Deck.to_string Deck.init));
     ( "test_valid_combo_length" >:: fun _ ->
       let new_combo =
         Combo.new_combo

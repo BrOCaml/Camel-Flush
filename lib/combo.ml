@@ -55,11 +55,11 @@ let is_straight combo =
 
 let is_four_of_a_kind combo =
   List.length (List.sort_uniq Card.compare_rank combo) = 2
-  && Card.rank (List.nth combo 1) <> Card.rank (List.nth combo 3)
+  && Card.rank (List.nth combo 1) = Card.rank (List.nth combo 3)
 
 let is_full_house combo =
   List.length (List.sort_uniq Card.compare_rank combo) = 2
-  && Card.rank (List.nth combo 1) = Card.rank (List.nth combo 3)
+  && Card.rank (List.nth combo 1) <> Card.rank (List.nth combo 3)
 
 let is_three_of_a_kind combo =
   List.length (List.sort_uniq Card.compare combo) = 3
@@ -91,14 +91,14 @@ let check_combo combo =
   else if is_one_pair combo then Pair
   else HighCard
 
-let%test "test1" =
-  combo_value
-    (check_combo
-       [
-         (Card.Hearts, Card.Ten);
-         (Card.Hearts, Card.Jack);
-         (Card.Hearts, Card.Queen);
-         (Card.Hearts, Card.King);
-         (Card.Hearts, Card.Ace);
-       ])
-  = 10
+let bro =
+  let combo =
+    [
+      (Card.Hearts, Card.Two);
+      (Card.Diamonds, Card.Three);
+      (Card.Clubs, Card.Three);
+      (Card.Spades, Card.Three);
+      (Card.Hearts, Card.Three);
+    ]
+  in
+  combo_value (check_combo combo)

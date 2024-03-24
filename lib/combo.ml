@@ -51,7 +51,7 @@ let is_straight combo =
        (fun (acc, prev) x ->
          (acc && Card.rank_int_of_card x = prev + 1, Card.rank_int_of_card x))
        (true, Card.rank_int_of_card (List.hd combo))
-       combo)
+       (List.tl combo))
 
 let is_four_of_a_kind combo =
   List.length (List.sort_uniq Card.compare_rank combo) = 2

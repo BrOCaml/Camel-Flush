@@ -62,18 +62,18 @@ let is_full_house combo =
   && Card.rank (List.nth combo 1) <> Card.rank (List.nth combo 3)
 
 let is_three_of_a_kind combo =
-  List.length (List.sort_uniq Card.compare combo) = 3
+  List.length (List.sort_uniq Card.compare_rank combo) = 3
   &&
   let rank_mid = Card.rank (List.nth combo 2) in
   List.length (List.filter (fun x -> Card.rank x = rank_mid) combo) = 3
 
 let is_two_pair combo =
-  List.length (List.sort_uniq Card.compare combo) = 3
+  List.length (List.sort_uniq Card.compare_rank combo) = 3
   &&
   let rank_mid = Card.rank (List.nth combo 2) in
-  List.length (List.filter (fun x -> Card.rank x = rank_mid) combo) <> 3
+  List.length (List.filter (fun x -> Card.rank x = rank_mid) combo) < 3
 
-let is_one_pair combo = List.length (List.sort_uniq Card.compare combo) = 4
+let is_one_pair combo = List.length (List.sort_uniq Card.compare_rank combo) = 4
 let is_straight_flush combo = is_straight combo && is_flush combo
 
 let is_royal_flush combo =
@@ -101,4 +101,4 @@ let bro =
       (Card.Hearts, Card.Three);
     ]
   in
-  combo_value (check_combo combo)
+  if combo_value (check_combo combo) = 8 then 1 else 0

@@ -1,0 +1,47 @@
+---
+# Members of your group.
+group:
+  - name: Huajie Zhong
+    netid: hz642
+  - name: Frank Dai 
+    netid: sd924
+  - name : Mohamed Katary 
+    netid: mtk67
+# Your PM.
+pm:  
+  name: Atulya Lohani
+  netid: al878
+# Set to false if you don't want your gallery entry to be public.
+publish: true
+# Pithy title
+title: "Camel-Flush"
+# OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
+git-repo: "https://github.com/BrOCaml/Camel-Flush"
+# If you have no demo screencast, replace the url string with an empty string ""
+demo-video-url: ""
+# Write a short, attention-grabbing description of your project.
+desc: >
+  Our project is an Texas-Holdem, but with a camel twist. It is player vs computer, 
+  where the player can set the difficulty level of the game out of {easy, medium, hard}. 
+  Each level corresponds to the advantage level the computer has over the player, 
+  where level hard indicates the computer is very likely to win. The interace is 
+  simple but offers enough information about the player's hand and the table cards 
+  {the flop, the turn, the river}. 
+  the flop: the first three community cards.
+  the turn: the fourth community card.
+  the river: the fifth and final community card.
+
+  Each player starts with the same set amount of "buy-in" (could be cool to 
+  call them "Camel-Coins") and 2 arbitrary cards, the 'hole cards. During each round, 
+  the player can "fold", "call", "raise" or "all-in." Over the game, five more cards are 
+  (eventually) dealt and shown to the players. Each player is free to use these cards 
+  in combination with their cards to build a five-card poker hand. 
+
+  Your mission is to construct your five-card poker hands using the best available 
+  five cards out of the seven total cards (your two hole cards and the five community 
+  cards). 
+
+  After each game, the player is congratulated! 
+
+
+

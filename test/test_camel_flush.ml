@@ -2,6 +2,7 @@ open OUnit2
 open Camel_flush
 open PokerCard
 module PokerDeck = Deck.Make (PokerCard)
+module Player = Player.Make (PokerCard)
 
 let new_deck =
   "[2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; \
@@ -353,7 +354,31 @@ let combo_test_suite =
          "test_is_pair_fail" >:: test_is_one_pair_fail;
        ]
 
+let player = Player.create 0 [] 100
+let test_player_id _ = assert_equal player.id 0
+let test_player_hand _ = assert_equal player.hand []
+let test_player_chips _ = assert_equal player.chips 100
+let test_player_fold _ = assert_equal player.is_fold false
+let test_incr_chips _ = assert_equal (Player.incr_chips player 100).chips 200
+let test_decr_chips _ = assert_equal (Player.decr_chips player 50).chips 50
+
+let test_add_to_hand _ =
+  assert_equal (Player.add_to_hand player (Hearts, Two)).hand [ (Hearts, Two) ]
+
+let player_suite =
+  "PlayerTestSuite"
+  >::: [
+         "test_player_id" >:: test_player_id;
+         "test_player_hand" >:: test_player_hand;
+         "test_player_chips" >:: test_player_chips;
+         "test_player_fold" >:: test_player_fold;
+         "test_incr_chips" >:: test_incr_chips;
+         "test_decr_chips" >:: test_decr_chips;
+         "test_add_to_hand" >:: test_add_to_hand;
+       ]
+
 let test_suite = "set test suite" >::: tests
 let _ = run_test_tt_main test_suite
 let _ = run_test_tt_main card_suite
 let _ = run_test_tt_main combo_test_suite
+let _ = run_test_tt_main player_suite

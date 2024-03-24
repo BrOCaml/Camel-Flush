@@ -21,9 +21,6 @@ module type Deck = sig
 
   val to_string : t -> string
   (** [to_string d] is a string representation of the deck [d]. *)
-
-  val generate_deck : unit -> (Card.suit * Card.rank) list
-  (** [generate_deck ()] is a complete and full deck. *)
 end
 
 module Make (C : Card) : Deck with type card = C.t

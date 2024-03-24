@@ -50,7 +50,7 @@ let test_to_string _ =
   assert_equal (to_string (Spades, Ace)) "A♠"
 
 let test_suit _ =
-  assert_equal (suit (Hearts, Two)) Hearts;
+  assert_equal (suit (Card.Hearts, Two)) Hearts;
   assert_equal (suit (Spades, Ace)) Spades
 
 let test_rank _ =

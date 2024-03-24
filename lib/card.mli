@@ -27,14 +27,9 @@ val compare : t -> t -> int
     should be before b, if positive then b should before a. 0 if equal *)
 
 val compare_rank : t -> t -> int
-(**[compare_rank a b] is the indication for order of a and b based on rank. If
-   negative then a should be before b, if positive then b should before a. 0 if
-   equal*)
-
-val compare_rank : t -> t -> int
-(**[compare_rank a b] is the indication for order of a and b based on rank. If
-   negative then a should be before b, if positive then b should before a. 0 if
-   equal*)
+(** [compare_rank a b] is the indication for order of a and b based on rank. If
+    negative then a should be before b, if positive then b should before a. 0 if
+    equal *)
 
 val to_string : t -> string
 (** [to_string t] is the string representation of t *)

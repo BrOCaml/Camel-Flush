@@ -1,5 +1,6 @@
 type t = Card.t list
-(**RI: A combo is a list of only 5 cards, must be sorted*)
+
+(** RI: A combo is a list of only 5 cards, must be sorted *)
 
 type combo_type =
   | HighCard

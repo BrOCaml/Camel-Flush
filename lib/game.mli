@@ -48,6 +48,9 @@ module type Game = sig
   val deal : t -> t
   (** [deal t] is the new game status with each player dealt two cards *)
 
+  val deal_community : t -> t
+  (** [deal_community t] is the new game status with three community cards dealt *)
+
   val bet : t -> player -> int -> t
   (** [bet t p n] is the new game status with player [p] bet [n] chips *)
 

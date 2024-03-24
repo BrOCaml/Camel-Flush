@@ -37,6 +37,7 @@ module type Game = sig
 
   val init : int -> t
   val deal : t -> t
+  val deal_community : t -> t
   val bet : t -> player -> int -> t
   val fold : t -> player -> t
   val to_string : t -> string
@@ -56,6 +57,7 @@ module Make
     players : player list;
     pot : int;
     current_bet : int;
+    community_cards : card list;
   }
 
   let init n =
@@ -66,6 +68,7 @@ module Make
             P.{ id = i; hand = []; chips = 100; is_fold = false });
       pot = 0;
       current_bet = 0;
+      community_cards = [];
     }
 
   let deal game =
@@ -77,6 +80,14 @@ module Make
         (game.deck, []) game.players
     in
     { game with deck = updated_deck; players = List.rev new_players }
+
+  let deal_community game =
+    let card, new_deck = D.draw game.deck in
+    {
+      game with
+      deck = new_deck;
+      community_cards = card :: game.community_cards;
+    }
 
   let bet game player chips =
     {
@@ -99,7 +110,8 @@ module Make
     }
 
   let to_string game =
-    Printf.sprintf "Pot: %d\nCurrent bet: %d\nMy Cards: %s" game.pot
-      game.current_bet
+    Printf.sprintf "Community Cards: %s\nPot: %d\nCurrent bet: %d\nMy Cards: %s"
+      (String.concat "," (List.map C.to_string game.community_cards))
+      game.pot game.current_bet
       (String.concat "," (List.map C.to_string (List.hd game.players).hand))
 end

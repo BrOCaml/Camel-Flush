@@ -1,11 +1,11 @@
 type t
 (**type representation of the combo*)
 
-val new_combo : Card.t list -> t
+val new_combo : PokerCard.t list -> t
 (**[new_combo] is the combo with list of 5 cards. Fail if list is not 5 cards in
    the list*)
 
-val to_list : t -> Card.t list
+val to_list : t -> PokerCard.t list
 (**[to_list c] is the list of cards in the combo [c]*)
 
 val to_string : t -> string

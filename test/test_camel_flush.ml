@@ -1,7 +1,7 @@
 open OUnit2
 open Camel_flush
-open Card
-module PokerDeck = Deck.Make (Card)
+open PokerCard
+module PokerDeck = Deck.Make (PokerCard)
 
 let new_deck =
   "[2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; \

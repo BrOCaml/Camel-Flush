@@ -1,5 +1,8 @@
 type card = PokerCard.t
+(** representation type of card *)
+
 type t
+(** representation type of deck *)
 
 val init : t
 (** [init ()] is a new deck of cards. *)

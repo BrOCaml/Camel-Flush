@@ -46,6 +46,8 @@ let bet game player chips =
     current_bet = chips;
   }
 
+let check game player = bet game player 0
+
 let fold game player =
   {
     game with

@@ -22,3 +22,4 @@ let to_string_hand player =
 
 let add_to_hand player card = { player with hand = card :: player.hand }
 let fold player = { player with is_fold = true }
+let all_in player = { player with chips = 0 }

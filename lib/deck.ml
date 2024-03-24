@@ -22,7 +22,6 @@ module Make (C : Card) : Deck with type card = C.t = struct
   let init = C.create_deck
 
   let shuffle deck =
-    Random.self_init ();
     let arr = Array.of_list deck in
     for i = Array.length arr - 1 downto 1 do
       let j = Random.int (i + 1) in

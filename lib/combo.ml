@@ -92,6 +92,7 @@ let check_combo combo =
   else if is_one_pair combo then Pair
   else HighCard
 
+(* inline tests *)
 let%test "test1" =
   combo_value
     (check_combo
@@ -103,3 +104,29 @@ let%test "test1" =
          (Card.Hearts, Card.Ace);
        ])
   = 10
+
+let%test "to_list_test" =
+  let cards =
+    [
+      (Card.Hearts, Card.Two);
+      (Card.Hearts, Card.Three);
+      (Card.Hearts, Card.Four);
+      (Card.Hearts, Card.Five);
+      (Card.Hearts, Card.Six);
+    ]
+  in
+  let combo = new_combo cards in
+  to_list combo = cards
+
+let%test "to_string_test" =
+  let cards =
+    [
+      (Card.Hearts, Card.Two);
+      (Card.Hearts, Card.Three);
+      (Card.Hearts, Card.Four);
+      (Card.Hearts, Card.Five);
+      (Card.Hearts, Card.Six);
+    ]
+  in
+  let combo = new_combo cards in
+  to_string combo = "[2♡; 3♡; 4♡; 5♡; 6♡]"

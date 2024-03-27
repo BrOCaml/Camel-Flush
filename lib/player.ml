@@ -21,6 +21,7 @@ module type Player = sig
   val to_string_hand : t -> string
   val is_fold : t -> bool
   val add_to_hand : t -> card -> t
+  val fold : t -> t
 end
 
 module Make (C : Card) : Player with type card = C.t = struct
@@ -47,4 +48,5 @@ module Make (C : Card) : Player with type card = C.t = struct
     |> Printf.sprintf "Player %d: %s" player.id
 
   let add_to_hand player card = { player with hand = card :: player.hand }
+  let fold player = { player with is_fold = true }
 end

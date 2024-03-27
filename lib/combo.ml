@@ -124,6 +124,7 @@ let best_combo card_lst =
   let best_combo =
     List.fold_left
       (fun acc combo ->
+        let combo = new_combo combo in
         let current_combo_type = check_combo combo in
         let acc_combo_type = check_combo acc in
         if combo_value current_combo_type > combo_value acc_combo_type then
@@ -131,4 +132,5 @@ let best_combo card_lst =
         else acc)
       (List.hd all_combos) all_combos
   in
-  string_of_combo_type (check_combo best_combo)
+  to_string best_combo ^ "\nType:"
+  ^ string_of_combo_type (check_combo best_combo)

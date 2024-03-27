@@ -27,6 +27,7 @@ module type Player = sig
   val incr_chips : t -> int -> t
   val decr_chips : t -> int -> t
   val add_to_hand : t -> card -> t
+  val fold : t -> t
 end
 
 module type Game = sig
@@ -41,6 +42,8 @@ module type Game = sig
   val bet : t -> player -> int -> t
   val fold : t -> player -> t
   val to_string : t -> string
+  val get_nth_player : t -> int -> player
+  val players : t -> player list
 end
 
 module Make
@@ -104,14 +107,16 @@ module Make
     {
       game with
       players =
-        List.map
-          (fun p -> if p = player then P.incr_chips p game.pot else p)
-          game.players;
+        List.map (fun p -> if p = player then P.fold p else p) game.players;
     }
 
   let to_string game =
-    Printf.sprintf "Community Cards: %s\nPot: %d\nCurrent bet: %d\nMy Cards: %s"
+    Printf.sprintf
+      "Community Cards: %s\nPot: %d\nCurrent bet: %d\nMy Cards: %s\n"
       (String.concat "," (List.map C.to_string game.community_cards))
       game.pot game.current_bet
       (String.concat "," (List.map C.to_string (List.hd game.players).hand))
+
+  let get_nth_player game n = List.nth game.players n
+  let players game = game.players
 end

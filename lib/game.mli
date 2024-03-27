@@ -27,6 +27,7 @@ module type Player = sig
   val incr_chips : t -> int -> t
   val decr_chips : t -> int -> t
   val add_to_hand : t -> card -> t
+  val fold : t -> t
 end
 
 module type Game = sig
@@ -59,6 +60,12 @@ module type Game = sig
 
   val to_string : t -> string
   (** [to_string t] is the string representation of the game status *)
+
+  val get_nth_player : t -> int -> player
+  (** [get_nth_player t n] is the nth player in the game status *)
+
+  val players : t -> player list
+  (** [players t] is the list of players in the game status *)
 end
 
 module Make

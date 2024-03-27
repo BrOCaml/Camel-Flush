@@ -7,7 +7,7 @@ let game =
   |> Game.deal_community |> Game.deal_community
 
 (* let user = PokerGame.get_nth_player game 0 *)
-let () = print_endline (PokerGame.to_string game)
+let () = print_endline (Game.to_string game)
 let _ = print_endline "It's your turn\nDo you want to fold, call, or raise?"
 
 let decision =

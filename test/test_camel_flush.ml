@@ -1,8 +1,6 @@
 open OUnit2
 open Camel_flush
 open PokerCard
-module PokerDeck = Deck.Make (PokerCard)
-module Player = Player.Make (PokerCard)
 
 let new_deck =
   "[2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; \
@@ -11,8 +9,7 @@ let new_deck =
 
 let tests =
   [
-    ( "test_empty" >:: fun _ ->
-      assert_equal new_deck (PokerDeck.to_string PokerDeck.init) );
+    ("test_empty" >:: fun _ -> assert_equal new_deck (Deck.to_string Deck.init));
     ( "test_valid_combo_length" >:: fun _ ->
       let new_combo =
         Combo.new_combo
@@ -76,6 +73,28 @@ let card_suite =
          "test_rank_int_of_card" >:: test_rank_int_of_card;
        ]
 
+(** deck tests*)
+let test_shuffle _ =
+  let shuffled_deck = Deck.shuffle Deck.init in
+  assert_equal
+    (String.length (Deck.to_string shuffled_deck))
+    (String.length new_deck)
+
+let test_draw _ =
+  let drawn = Deck.draw Deck.init in
+  assert_bool "Drawn card is in the deck" (List.mem (fst drawn) create_deck)
+
+let test_to_string _ = assert_equal new_deck (Deck.to_string Deck.init)
+
+let deck_suite =
+  "DeckTestSuite"
+  >::: [
+         "test_shuffle" >:: test_shuffle;
+         "test_draw" >:: test_draw;
+         "test_to_string" >:: test_to_string;
+       ]
+
+(** combo tests *)
 let test_combo_map cards f _ = assert_bool (Combo.to_string cards) (f cards)
 
 let test_new_combo_sort _ =
@@ -395,5 +414,6 @@ let player_suite =
 let test_suite = "set test suite" >::: tests
 let _ = run_test_tt_main test_suite
 let _ = run_test_tt_main card_suite
+let _ = run_test_tt_main deck_suite
 let _ = run_test_tt_main combo_test_suite
 let _ = run_test_tt_main player_suite

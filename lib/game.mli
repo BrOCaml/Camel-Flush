@@ -1,75 +1,32 @@
-module type Card = sig
-  type t
+type deck
+(** The type of the game's deck *)
 
-  val to_string : t -> string
-end
+type player
+(** The type of the game's players *)
 
-module type Deck = sig
-  type card
-  type t
+type card
+(** The type of the game's cards *)
 
-  val init : t
-  val shuffle : t -> t
-  val draw : t -> card * t
-end
+type t
+(** The type of the game status *)
 
-module type Player = sig
-  type card
+val init : int -> t
+(** [init] is the initial game status *)
 
-  type t = {
-    id : int;
-    hand : card list;
-    chips : int;
-    is_fold : bool;
-  }
+val deal : t -> t
+(** [deal t] is the new game status with each player dealt two cards *)
 
-  val is_fold : t -> bool
-  val incr_chips : t -> int -> t
-  val decr_chips : t -> int -> t
-  val add_to_hand : t -> card -> t
-  val fold : t -> t
-end
+val deal_community : t -> t
+(** [deal_community t] is the new game status with three community cards dealt *)
 
-module type Game = sig
-  type deck
-  (** The type of the game's deck *)
+val bet : t -> player -> int -> t
+(** [bet t p n] is the new game status with player [p] bet [n] chips *)
 
-  type player
-  (** The type of the game's players *)
+val check : t -> player -> t
+(** [check p] is the new game status with player [p] bet [0] chips *)
 
-  type card
-  (** The type of the game's cards *)
+val fold : t -> player -> t
+(** [fold t p] is the new game status with player [p] folded *)
 
-  type t
-  (** The type of the game status *)
-
-  val init : int -> t
-  (** [init] is the initial game status *)
-
-  val deal : t -> t
-  (** [deal t] is the new game status with each player dealt two cards *)
-
-  val deal_community : t -> t
-  (** [deal_community t] is the new game status with three community cards dealt *)
-
-  val bet : t -> player -> int -> t
-  (** [bet t p n] is the new game status with player [p] bet [n] chips *)
-
-  val fold : t -> player -> t
-  (** [fold t p] is the new game status with player [p] folded *)
-
-  val to_string : t -> string
-  (** [to_string t] is the string representation of the game status *)
-
-  val get_nth_player : t -> int -> player
-  (** [get_nth_player t n] is the nth player in the game status *)
-
-  val players : t -> player list
-  (** [players t] is the list of players in the game status *)
-end
-
-module Make
-    (C : Card)
-    (D : Deck with type card = C.t)
-    (P : Player with type card = C.t) :
-  Game with type deck = D.t and type player = P.t and type card = C.t
+val to_string : t -> string
+(** [to_string t] is the string representation of the game status *)

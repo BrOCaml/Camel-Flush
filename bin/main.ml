@@ -7,3 +7,16 @@ let game =
   |> Game.deal_community |> Game.deal_community
 
 let () = print_endline (Game.to_string game)
+
+let () =
+  (* First round *)
+  let game = Game.bet_round game in
+  let game = Game.deal_community game in
+  print_endline (Game.to_string game);
+
+  (* Second round *)
+  let game = Game.bet_round game in
+  let game = Game.deal_community game in
+  print_endline (Game.to_string game);
+
+  print_endline ("Your Best Combo is: " ^ Game.player_best_combo game)

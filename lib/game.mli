@@ -25,8 +25,26 @@ val bet : t -> player -> int -> t
 val check : t -> player -> t
 (** [check p] is the new game status with player [p] bet [0] chips *)
 
+val call : t -> player -> t
+(** [call p] is the new game status with player [p] bet the same amount as the
+    previous player *)
+
+val raise : t -> player -> int -> t
+(** [raise p n] is the new game status with player [p] bet [n] more chips than
+    the previous player *)
+
+val action : t -> player -> string -> ?chips:int -> unit -> t
+(** [action t p n] is the new game status with player [p] bet [n] chips *)
+
+val bet_round : t -> t
+(** [round t] is the new game status with the round advanced *)
+
 val fold : t -> player -> t
 (** [fold t p] is the new game status with player [p] folded *)
 
 val to_string : t -> string
 (** [to_string t] is the string representation of the game status *)
+
+val player_best_combo : t -> string
+(** [player_best_combo t] is the string representation of the player's best hand
+    in the game *)

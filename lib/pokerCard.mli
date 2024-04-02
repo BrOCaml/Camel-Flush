@@ -34,6 +34,9 @@ val compare_rank : t -> t -> int
 val to_string : t -> string
 (** [to_string t] is the string representation of t *)
 
+val to_code : t -> string
+(** [to_code t] is the code representation of t *)
+
 val rank_to_int : rank -> int
 (**[rank_to_int r] is the integer representation of r*)
 

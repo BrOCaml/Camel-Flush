@@ -1,0 +1,528 @@
+commit 8c7c7b292be7d692fa01a559550cf7d9d05abf79
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 12:21:42 2024 -0400
+
+    update INSTALL.md
+
+commit b70c6f602bdd64a91e345e608991e11fdebd151a
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 12:18:02 2024 -0400
+
+    update INSTALL.md
+
+commit cd9a0126ea56097181c80c38dbb9b4651fd21981
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:34:41 2024 -0400
+
+    make install.md
+
+commit 6798aa7893a5b6dd095a8d94aafe7e5d28c7b18a
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:26:46 2024 -0400
+
+    fix module name after functor refactor
+
+commit 771f6cb3a9672dc95b439537616ec3815123f91b
+Merge: 728ce59 a217417
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:24:44 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 728ce5974756340bead2abfe8a85d0f2b7601afd
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:20:45 2024 -0400
+
+    add fold feature
+
+commit b19e3c86d435068615f8c99c9738958c7b812a8f
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:20:33 2024 -0400
+
+    add fold feature
+
+commit fd1c77d1cb0cce0fc8360c47139286c6478eb855
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 10:18:20 2024 -0400
+
+    add user decision query
+
+commit a217417ac976f49225943884a7ef4aacab84db7f
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Mar 24 11:10:28 2024 -0400
+
+    "Fixed game.mli  type"
+
+commit 7a0f3d9cf97f95b26895b4ac207e78ce0d57e2b2
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Mar 24 11:03:04 2024 -0400
+
+    "finished deck test suite
+    - add simple fuctions all_in and check in player.ml and game.ml
+    - wrote documentation in player.mli"
+
+commit f84175b54c32232c4aadda7b580c9732364a0820
+Merge: e02f146 571b881
+Author: Frank <144753882+Shengle-Dai@users.noreply.github.com>
+Date:   Sun Mar 24 01:12:24 2024 -0400
+
+    Merge pull request #6 from BrOCaml/Frank
+    
+    Revolutionary Decision: NOT USING STUPID FUNCTOR
+
+commit 571b881c19aa24093bfd1a7bd3a7d95ecd4f44d8
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Mar 24 01:10:22 2024 -0400
+
+    Modify all the lib compilation units to non-functor-based
+    
+    - Modified the implementation
+    - Modified main.ml
+    - Modified the tests to make them non-functor-based
+
+commit aac113f80733008fc1c25f9854a22932fec546d8
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Mar 24 00:32:59 2024 -0400
+
+    Move Random.self_init to main.ml
+
+commit e02f146f33d3a3356fe471bf166ac8d6896f4ba2
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Mar 24 00:26:09 2024 -0400
+
+    Fixed test error
+
+commit c7afd160dbc4fbf4ccd9977500724a9209627453
+Merge: 576fea2 d42b0bd
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Mar 24 00:24:07 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush
+
+commit 576fea2ffbe4097ab41d62cfc19b27616bd44897
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Mar 24 00:20:07 2024 -0400
+
+    Change combo functions
+
+commit d42b0bd4caa1afeffdc5c12cd7ebdb51e6c76a90
+Merge: 6f702c0 76a1790
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sun Mar 24 00:16:22 2024 -0400
+
+    Merge pull request #5 from BrOCaml/huajie
+    
+    Huajie
+
+commit 76a17903c689ca7e0444a04a62d6c622feab7ce5
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sun Mar 24 00:11:51 2024 -0400
+
+    refactor combo and deck module
+
+commit e68eb1c9a41719ede962f6806223abea2ee795c4
+Merge: cee965c 6f702c0
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sun Mar 24 00:03:54 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 6f702c096d778714c4bbaa41b2a758e6f6698537
+Merge: bf3cf62 bcc80d8
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Mar 24 00:03:10 2024 -0400
+
+    Merge branch 'main' of https://github.com/BrOCaml/Camel-Flush
+
+commit bf3cf62f40eae108521e66a5d3eec8f24fb2dd2b
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 23:56:20 2024 -0400
+
+    Fix pseudo-random problem
+    
+    - Enable self_init for Random module
+    - Added community card field
+
+commit bcc80d840b39199c0a10d784f01f3bf1b4e54b91
+Merge: 358526f 390d331
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 23:42:57 2024 -0400
+
+    Merge remote-tracking branch 'origin/huajie'
+
+commit a77f1e81833db3af8f0cfddc96b2c479adc49dd4
+Merge: 7da8133 694a45f
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 23:39:58 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit cee965ca38254a49c2c6ec78354599b86ead581f
+Merge: 694a45f 7da8133
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 23:39:55 2024 -0400
+
+    Merge branch 'Frank' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 7da813325a6bf09e569dc6c6ac717fe06c08f211
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 23:39:41 2024 -0400
+
+    Remove current_player field
+
+commit 694a45f2e15d34c1c674ca60bf64f30ec15d489b
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 23:39:40 2024 -0400
+
+    add player module test
+
+commit 358526f085379d553e4c9a51f06d431bf28c92cd
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 23:37:10 2024 -0400
+
+    Add YAML file.
+
+commit f4ef8d0214f947b01b5d197406eba8399bd500b7
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 23:09:37 2024 -0400
+
+    Fixed combo functions and added test cases to check each one.
+
+commit 6de52b0453ef61918edbdbc10a8ceebfe073026a
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 23:06:23 2024 -0400
+
+    Fix most bugs and create an easy main
+    
+    - Wrote a main that just print the initial game status
+    - modified game.Make functor to ensure that the card types in Player and Deck are the same
+    - changed name of compilation unit Card to PokerCard
+
+commit 47d7b8525665c97c4c15415413a6a0bc66f1cd54
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 22:41:24 2024 -0400
+
+    Add Player module with Card and Player interfaces
+
+commit 33345aa7f9e59ffb4f9688641d93979a17f68e00
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 22:04:49 2024 -0400
+
+    Added tests for combo.ml functions.
+
+commit b363871ea22b5df84e627216e8d656d242539e0e
+Merge: f009c40 9319c51
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 21:17:46 2024 -0400
+
+    Merge branch 'Frank' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit f009c40905d1db4a226776716b307887f3912601
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 21:16:54 2024 -0400
+
+    Add bisect_ppx instrumentation to test_camel_flush
+
+commit 9319c51d0ab03c466ae42ee2d0afe9124cc10fba
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 21:16:19 2024 -0400
+
+    Refactor combo functions to compare card ranks instead of whole cards
+
+commit 67a0f7ee3c3b39e8373046752aba320a99775d7c
+Merge: 734e36a 4c4afff
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 21:02:20 2024 -0400
+
+    Merge branch 'Frank' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 4c4afffdfb9ac86183994db98624e464e5116fc3
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 21:02:02 2024 -0400
+
+    Add game compilation unit
+
+commit 734e36af860d85643a56b844dded07cd0fbbc831
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 21:01:41 2024 -0400
+
+    Add new test cases for Combo module
+    
+    -add two more situation for three of a kind
+    -add sort test
+
+commit 031d1d4db21da071414fc240de8ef6d69e45c51c
+Merge: 8d37578 266f086
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 20:50:17 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit 266f086eaf41e7963b85da919bbb2c3a79d16f12
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 20:50:08 2024 -0400
+
+    Update test_is_pair_fail to test_is_one_pair_fail
+
+commit 8d375780472fb0ddb0faf77122412c1f7e0d19f5
+Merge: b1e962f d03856e
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 20:49:45 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit d03856ee2797b3957fd3444c755cd79eeeb377d1
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 20:49:25 2024 -0400
+
+    Add combo tests for various card combinations
+
+commit cb678d9f75338bce5a6f0f933e2d89e16962da86
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 20:49:16 2024 -0400
+
+    Add combo type functions
+
+commit a1292ba912a3ec0383e10a1899ae0ce3475912b2
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 20:43:36 2024 -0400
+
+    Slightly modifed card.mli
+
+commit 4d7f98df84ba637988e628c94dee01a39a9d1014
+Merge: 24002bc 9909265
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 20:42:27 2024 -0400
+
+    Added generate_deck function
+
+commit b1e962faef346d3266c38d982a469f052fe78b88
+Merge: 9909265 390d331
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 20:05:13 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit 9909265cd5d54d1a80943093ab7c3140966e8867
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 20:04:53 2024 -0400
+
+    Fix is_straight function in combo.ml
+
+commit 390d33107069f6292116d5ab80fa3e44bca20958
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 20:04:47 2024 -0400
+
+    add test for card module
+
+commit 24002bcfa5225de1174e4ccb029c4cbf88373b6d
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sat Mar 23 18:59:42 2024 -0400
+
+    Added function to generate full deck.
+
+commit e6beb6afb7b6253bfd9bb670fb7ab708800d9067
+Merge: 9067fc5 e0566c8
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:52:30 2024 -0400
+
+    Merge branch 'Frank' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 9067fc51277af425be438445f834af8e5268a2aa
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:51:47 2024 -0400
+
+    Add unit tests for Card module
+
+commit 027c74e86105ebc377d3945e5e3564d7a1709f7f
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:51:41 2024 -0400
+
+    fix compare_rank bug
+
+commit e0566c8351033d5f81ee5a7b783544d15e423f35
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 18:51:16 2024 -0400
+
+    Add inline-test
+
+commit 418c21f261cba8c588cc9e279bfbe642b71dc6ba
+Merge: 7d57da3 1239800
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 18:32:48 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit 7d57da39eeff779ca5029017f14a8cd1188e597c
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 18:32:01 2024 -0400
+
+    Add new combo functions to main.ml
+
+commit 12398000c617c4d0a90068d077dd891a5f5473d5
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:31:06 2024 -0400
+
+    Add functions for checking straight flush and royal flush
+
+commit e8bcc91296c46be5ed40a1382ae90929a29b84fe
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:31:01 2024 -0400
+
+    Add compare_rank function to card module
+
+commit 661a0937cf6d8ad50698d07d84eff61210f8c16b
+Merge: 14124b4 f3efd25
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:08:46 2024 -0400
+
+    Merge branch 'Frank' of github.com:Camel-Flush/Camel-Flush into huajie
+
+commit 35d880904c1d6d9828bb78a57daa711b32fb8081
+Merge: f3efd25 14124b4
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 18:06:46 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit 14124b4af9c0d60f31b21e31019af069d45472fb
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:03:40 2024 -0400
+
+    Add combo module with type and functions
+    
+    -allow creation of combo
+    -allow tostring and tolist representation
+
+commit 88a4676afa44e864c3b892ae98f4556bf88bcc33
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 18:03:13 2024 -0400
+
+    Add suit and rank accessors to card module
+
+commit f3efd25950dd6e186abf8b984eedd18ecfddd597
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 17:48:45 2024 -0400
+
+    Add instrumentation for code coverage using bisect_ppx
+
+commit a0d265fa602d901aaae8474fba582abe9b7faf82
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 17:32:50 2024 -0400
+
+    Add init function to Deck module
+
+commit f946a4e059e0bf316314ebad6ff26b2bd39e00db
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 17:28:01 2024 -0400
+
+    Add create_deck function to generate a full deck of cards
+
+commit e60c0de49840d7472197fd6fb220e0ff7387697f
+Merge: 4db564d 991dde5
+Author: Frank <144753882+Shengle-Dai@users.noreply.github.com>
+Date:   Sat Mar 23 17:16:56 2024 -0400
+
+    Merge pull request #3 from BrOCaml/Frank
+    
+    Implemented Deck
+
+commit 4db564d3071901654abab957620d6d36cc8cfc25
+Merge: 7480616 c22f6a0
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sat Mar 23 17:16:42 2024 -0400
+
+    Merge pull request #2 from BrOCaml/huajie
+    
+    Add card module with types and functions
+
+commit 991dde540f30f05f404cb4502d242e81c754b204
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 16:26:17 2024 -0400
+
+    Implement basic fuctions for deck
+    
+    - Wrote Make functor
+
+commit 525b13d44acec7a13ff9498fa79ebf3f4166eacc
+Merge: 7480616 c22f6a0
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sat Mar 23 15:49:30 2024 -0400
+
+    Merge branch 'huajie' of https://github.com/BrOCaml/Camel-Flush into Frank
+
+commit c22f6a0783d33bee47e5f4e611c852b79c69c402
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 15:48:12 2024 -0400
+
+    Add card module with types and functions
+
+commit 7480616200540d561a9b4aef5fffb1576c61ece2
+Merge: 30c244f 9ecb4f0
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sat Mar 23 15:15:44 2024 -0400
+
+    Merge pull request #1 from BrOCaml/huajie
+    
+    create card module
+
+commit 9ecb4f06a9adaedf0431d87feb770f86cceabd1d
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sat Mar 23 15:14:58 2024 -0400
+
+    create card module
+
+commit 30c244f71800d43fd9fe364f2732d4acd8d46fb2
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Fri Mar 22 23:29:08 2024 -0400
+
+    Initialize dune project
+
+commit 6eaf0daeba5372ac50efd3449b676909ba24f71a
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Fri Mar 8 16:33:44 2024 -0500
+
+    Update README.md
+
+commit c1098048e31998ecdfe8ec4f365971a7ceb3e6f2
+Merge: 13c86e3 3c68094
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Fri Mar 8 16:32:21 2024 -0500
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush
+
+commit 13c86e3c624209669ecb7afa8de4b2256c2b8827
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Fri Mar 8 16:28:59 2024 -0500
+
+    Updated README
+
+commit 3c68094db6e5d46ffba2bd4a4468ede935f3f2dc
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 6 14:51:18 2024 -0500
+
+    Update README.md
+
+commit 87bf703f7a003d84825b5d6784d94118e450106f
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 6 14:47:59 2024 -0500
+
+    Updated README.md
+
+commit 4d7be838d03878bcb75a218b4718e5bc67a00096
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 6 14:44:38 2024 -0500
+
+    Updated README.md with Huajie
+
+commit 440ec06a3bd1e370011505c5159eb75373d4d211
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Fri Mar 8 16:17:27 2024 -0500
+
+    Update Frank and his netid in README
+
+commit dbbd03cb64979269619b899c7fd8ba057a4c886d
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Fri Mar 8 16:13:27 2024 -0500
+
+    Initial commit

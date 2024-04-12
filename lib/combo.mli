@@ -41,4 +41,5 @@ val is_two_pair : t -> bool
 val is_one_pair : t -> bool
 (**[is_pair c] is true if the combo [c] is a pair, false otherwise*)
 
-val bro : int
+val best_combo : PokerCard.t list -> string
+(**[best_combo l] is the string representation of the best combo in the list [l]*)

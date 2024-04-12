@@ -48,6 +48,21 @@ let bet game player chips =
 
 let all_in game player = bet game player player.chips
 let check game player = bet game player 0
+let call game player = bet game player game.current_bet
+
+let raise game player chips =
+  if chips < game.current_bet then
+    failwith "Raise must be greater than current bet"
+  else
+    {
+      game with
+      players =
+        List.map
+          (fun p -> if p = player then Player.decr_chips p chips else p)
+          game.players;
+      pot = game.pot + chips;
+      current_bet = chips;
+    }
 
 let fold game player =
   {
@@ -58,9 +73,51 @@ let fold game player =
         game.players;
   }
 
+let action game player action ?(chips = 0) () =
+  match action with
+  | "check" -> check game player
+  | "call" -> call game player
+  | "raise" -> raise game player chips
+  | "fold" -> fold game player
+  | _ -> failwith "Invalid action"
+
+let turn game player action_str chips =
+  match action_str with
+  | "raise" -> action game player action_str ~chips ()
+  | "check" | "call" | "fold" -> action game player action_str ()
+  | _ -> failwith "Invalid action"
+
+let determine_player_action player game =
+  if player = List.hd game.players then
+    (* User input for the first player *)
+    let () = print_endline "Enter your action (check, call, raise, fold): " in
+    let action_str = read_line () in
+    let chips =
+      match action_str with
+      | "raise" ->
+          print_endline "Enter the number of chips: ";
+          int_of_string (read_line ())
+      | _ -> 0
+    in
+    (action_str, chips)
+  else
+    (* AI decision for other players *)
+    (* Placeholder logic - replace with actual AI decision-making *)
+    ("call", 0)
+
+let bet_round game =
+  List.fold_left
+    (fun current_game player ->
+      let action_str, chips = determine_player_action player current_game in
+      turn current_game player action_str chips)
+    game game.players
+
 let to_string game =
   Printf.sprintf "Community Cards: %s\nPot: %d\nCurrent bet: %d\nMy Cards: %s"
     (String.concat "," (List.map PokerCard.to_string game.community_cards))
     game.pot game.current_bet
     (String.concat ","
        (List.map PokerCard.to_string (List.hd game.players).hand))
+
+let player_best_combo game =
+  Combo.best_combo (game.community_cards @ (List.hd game.players).hand)

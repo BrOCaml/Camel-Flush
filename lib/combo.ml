@@ -32,6 +32,19 @@ let new_combo (c : PokerCard.t list) : t =
 
 let to_list (c : t) : PokerCard.t list = c
 
+let string_of_combo_type t =
+  match t with
+  | HighCard -> "High Card"
+  | Pair -> "Pair"
+  | TwoPair -> "Two Pair"
+  | ThreeOfAKind -> "Three of a Kind"
+  | Straight -> "Straight"
+  | Flush -> "Flush"
+  | FullHouse -> "Full House"
+  | FourOfAKind -> "Four of a Kind"
+  | StraightFlush -> "Straight Flush"
+  | RoyalFlush -> "Royal Flush"
+
 let to_string (c : t) : string =
   let rec to_string' (c : PokerCard.t list) : string =
     match c with
@@ -94,14 +107,30 @@ let check_combo combo =
   else if is_one_pair combo then Pair
   else HighCard
 
-let bro =
-  let combo =
-    [
-      (PokerCard.Hearts, PokerCard.Two);
-      (PokerCard.Diamonds, PokerCard.Three);
-      (PokerCard.Clubs, PokerCard.Three);
-      (PokerCard.Spades, PokerCard.Three);
-      (PokerCard.Hearts, PokerCard.Three);
-    ]
+let rec combinations k list =
+  if k = 0 then [ [] ]
+  else
+    match list with
+    | [] -> []
+    | h :: tl ->
+        let with_h =
+          List.map (fun combo -> h :: combo) (combinations (k - 1) tl)
+        in
+        let without_h = combinations k tl in
+        with_h @ without_h
+
+let best_combo card_lst =
+  let all_combos = combinations 5 card_lst in
+  let best_combo =
+    List.fold_left
+      (fun acc combo ->
+        let combo = new_combo combo in
+        let current_combo_type = check_combo combo in
+        let acc_combo_type = check_combo acc in
+        if combo_value current_combo_type > combo_value acc_combo_type then
+          combo
+        else acc)
+      (List.hd all_combos) all_combos
   in
-  if combo_value (check_combo combo) = 8 then 1 else 0
+  to_string best_combo ^ "\nType:"
+  ^ string_of_combo_type (check_combo best_combo)

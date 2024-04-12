@@ -46,6 +46,7 @@ let bet game player chips =
     current_bet = chips;
   }
 
+let all_in game player = bet game player player.chips
 let check game player = bet game player 0
 
 let fold game player =

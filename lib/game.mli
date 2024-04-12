@@ -22,6 +22,9 @@ val deal_community : t -> t
 val bet : t -> player -> int -> t
 (** [bet t p n] is the new game status with player [p] bet [n] chips *)
 
+val all_in : t -> player -> t
+(** [all_in t p] is the new game status with player [p] bet all thier chips *)
+
 val check : t -> player -> t
 (** [check p] is the new game status with player [p] bet [0] chips *)
 

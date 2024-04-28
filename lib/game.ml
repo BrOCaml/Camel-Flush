@@ -152,6 +152,8 @@ let determine_player_action player game =
         else if r = 99 then print_action player ("raise", player.chips)
         else if player.chips - game.current_bet <= 0 then
           print_action player ("fold", 0)
+        else if player.chips <= game.current_bet then
+          print_action player ("fold", 0)
         else
           print_action player
             ( "raise",

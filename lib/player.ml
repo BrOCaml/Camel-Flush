@@ -15,6 +15,8 @@ let decr_chips player amount = { player with chips = player.chips - amount }
 let to_string player =
   Printf.sprintf "Player %d: %d chips" player.id player.chips
 
+let to_string_name player = Printf.sprintf "Player %d" player.id
+
 let to_string_hand player =
   List.map PokerCard.to_string player.hand
   |> String.concat ", "

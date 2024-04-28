@@ -22,6 +22,9 @@ val decr_chips : t -> int -> t
 val to_string : t -> string
 (** [to_string player] is a string representation of [player] with [chips] *)
 
+val to_string_name : t -> string
+(** [to_string_name player] is the string representation of [player] name *)
+
 val to_string_hand : t -> string
 (** [to_string_hand player] is a string representation of [player] hand *)
 

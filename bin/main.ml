@@ -11,7 +11,7 @@ let () =
   print_endline "Welcome to Camel Flush!\nWhat's your name?";
   flush stdout;
   let name = read_line () in
-  print_endline ("Hello " ^ name ^ "!\n" ^ "Let's play")
+  print_endline ("Hello " ^ name ^ ", " ^ "let's play!")
 
 (* let user = PokerGame.get_nth_player game 0 *)
 let () = print_endline (Game.to_string game)
@@ -30,7 +30,7 @@ let () =
   (* User best combo *)
   print_endline ("Your Best Combo is: \n" ^ Game.player_best_combo game);
 
-  (* AI best combo *)
+  (* AI best combos *)
   print_endline "AI's Best Combos: ";
   Game.print_best_combos game;
 

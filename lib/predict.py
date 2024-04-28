@@ -154,6 +154,8 @@ def check_hand(hand):
 def unhinted_predict(hand):
     hand = [deck[card] for card in hand]
     hand = mlb.transform([hand])
+    #0 means not fold
+    #1 means to fold
     return unhinted_loaded_model.predict(hand)[0]
 
 

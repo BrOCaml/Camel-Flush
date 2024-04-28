@@ -69,6 +69,32 @@ let to_string (s, r) =
   in
   rank_str ^ suit_str
 
+let to_code (s, r) =
+  let suit_str =
+    match s with
+    | Clubs -> "c"
+    | Diamonds -> "d"
+    | Hearts -> "h"
+    | Spades -> "s"
+  in
+  let rank_str =
+    match r with
+    | Two -> "2"
+    | Three -> "3"
+    | Four -> "4"
+    | Five -> "5"
+    | Six -> "6"
+    | Seven -> "7"
+    | Eight -> "8"
+    | Nine -> "9"
+    | Ten -> "T"
+    | Jack -> "J"
+    | Queen -> "Q"
+    | King -> "K"
+    | Ace -> "A"
+  in
+  rank_str ^ suit_str
+
 let suit (t : t) = fst t
 let rank (t : t) = snd t
 

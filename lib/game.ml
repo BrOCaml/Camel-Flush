@@ -89,6 +89,17 @@ let turn game player action_str chips =
   | "check" | "call" | "fold" -> action game player action_str ()
   | _ -> failwith "Invalid action"
 
+let print_action (player : Player.t) (action, chips) =
+  let _ =
+    print_string ("Player " ^ string_of_int player.id ^ " decided to " ^ action)
+  in
+  let _ =
+    match action with
+    | "raise" -> print_endline (" " ^ string_of_int chips ^ " chips\n")
+    | _ -> print_endline "\n"
+  in
+  (action, chips)
+
 let determine_player_action player game =
   if player = List.hd game.players then
     (* User input for the first player *)
@@ -103,9 +114,39 @@ let determine_player_action player game =
     in
     (action_str, chips)
   else
-    (* AI decision for other players *)
-    (* Placeholder logic - replace with actual AI decision-making *)
-    ("call", 0)
+    let () =
+      print_endline
+        ("AI's turn\n" ^ "Now is player " ^ string_of_int player.id ^ "'s turn")
+    in
+    let () = Random.self_init () in
+    let r = Random.int 100 in
+    let cards = player.hand @ game.community_cards in
+    let ai = Ai.create cards in
+    let decision = Ai.predict ai in
+    match decision with
+    | 1 ->
+        if List.length cards = 2 then
+          if player.chips < game.current_bet || r < 30 then
+            print_action player ("fold", 0)
+          else if r < 60 then print_action player ("check", 0)
+          else print_action player ("call", 0)
+        else if r < 50 then print_action player ("fold", 0)
+        else if r < 70 then print_action player ("check", 0)
+        else if player.chips < game.current_bet then
+          print_action player ("fold", 0)
+        else
+          print_action player
+            ( "raise",
+              game.current_bet + Random.int (player.chips - game.current_bet) )
+    | _ ->
+        if player.chips < game.current_bet then ("fold", 0)
+        else if r < 70 then print_action player ("check", 0)
+        else if r < 80 then print_action player ("call", 0)
+        else if r = 99 then print_action player ("raise", player.chips)
+        else
+          print_action player
+            ( "raise",
+              game.current_bet + Random.int (player.chips - game.current_bet) )
 
 let bet_round game =
   List.fold_left

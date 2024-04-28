@@ -1,0 +1,5 @@
+(install
+ (files
+  (glob_files lib/predict.py)
+  (glob_files lib/model/*.sav))
+ (section share))

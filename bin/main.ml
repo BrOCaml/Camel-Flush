@@ -11,18 +11,20 @@ let () =
   print_endline "Welcome to Camel Flush!\nWhat's your name?";
   flush stdout;
   let name = read_line () in
-  print_endline ("Hello " ^ name ^ ", " ^ "let's play!")
+  print_endline ("Hello " ^ name ^ ", " ^ "let's play!\n")
 
 (* let user = PokerGame.get_nth_player game 0 *)
 let () = print_endline (Game.to_string game)
 
 let () =
   (* First round *)
+  print_endline "---First Round---";
   let game = Game.bet_round game in
   let game = Game.deal_community game in
   print_endline (Game.to_string game);
 
   (* Second round *)
+  print_endline "---Second Round---";
   let game = Game.bet_round game in
   let game = Game.deal_community game in
   print_endline (Game.to_string game);

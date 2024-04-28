@@ -103,7 +103,7 @@ let determine_player_action player game =
     let player_string =
       if player.id = 0 then "You" else "Player " ^ string_of_int player.id
     in
-    let () = print_endline (player_string ^ " already folded") in
+    let () = print_endline (player_string ^ " already folded\n") in
     ("fold", 0)
   else if player = List.hd game.players then
     (* User input for the first player *)
@@ -161,7 +161,13 @@ let bet_round game =
 
 let to_string game =
   Printf.sprintf
-    "Community Cards: %s\nPot: %d\nCurrent Bet: %d\nMy Cards: %s\nMy Chips: %d"
+    "***GAME INFO***\n\
+     Community Cards: %s\n\
+     Pot: %d\n\
+     Current Bet: %d\n\
+     My Cards: %s\n\
+     My Chips: %d\n\
+     ***GAME INFO END***\n"
     (String.concat " " (List.map PokerCard.to_string game.community_cards))
     game.pot game.current_bet
     (String.concat " "
@@ -177,7 +183,7 @@ let print_best_combos game =
       let best_combo =
         Combo.best_combo (game.community_cards @ (player : player).hand)
       in
-      print_endline ("Player " ^ string_of_int player.id ^ ":\n" ^ best_combo))
+      print_string ("Player " ^ string_of_int player.id ^ ": " ^ best_combo))
     (List.tl game.players)
 
 let check_higher_hand c1 c2 =
@@ -185,9 +191,11 @@ let check_higher_hand c1 c2 =
   if v = 1 then Some c1 else if v = -1 then Some c2 else None
 
 let determine_winner game =
-  match game.players with
+  match
+    List.filter (fun player -> not (Player.is_fold player)) game.players
+  with
   | [] -> "No players in the game"
-  | [ player ] -> Player.to_string player
+  | [ player ] -> Player.to_string_name player
   | player :: players ->
       let rec find_winner (players : player list) (current_winner : player)
           (tied_players : player list) =

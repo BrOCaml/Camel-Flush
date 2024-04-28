@@ -134,8 +134,9 @@ let best_combo card_lst =
         else acc)
       (List.hd all_combos) all_combos
   in
-  to_string best_combo ^ "\nType: "
+  to_string best_combo ^ " Type: "
   ^ string_of_combo_type (check_combo best_combo)
+  ^ "\n"
 
 let best_combo_type card_lst =
   let all_combos = combinations 5 card_lst in

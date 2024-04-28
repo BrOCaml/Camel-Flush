@@ -1,3 +1,5 @@
+(** @authors: Mohamed Katary (mtk67), Frank Dai (sd924), Huajie Zhong (hz642) *)
+
 open Camel_flush
 
 let () = Random.self_init ()

@@ -2,6 +2,21 @@ open OUnit2
 open Camel_flush
 open PokerCard
 
+(** Test Plan: Functions that handle card, deck, player, and combo logic were
+    tested by OUNit, while game and AI functionality were tested manually.
+    Tested modules by OUnit are pokerCard, deck, player and combo. While most
+    card, deck, player tests are glass box to check implementation is properly
+    working, there are also some black box tests to check normal functionality
+    of initilaizing a deck, checking rank of cards, suit of cards, comparing
+    cards, creating combos and checking valid combos and higher combos.
+    Randomized testing was not used. Test cases were mainly developed to ensure
+    game functionality of each component. For each component, we test it's
+    functionality on a micro level, e.g. checking the higher combo of two
+    combos. After ensuring that each comonent is working properly, we manually
+    test on the macro level (running the game) that everything is operating as
+    it should. By this, we can ensure correctness of the entire game
+    functionality. *)
+
 let new_deck =
   "[2♣; 3♣; 4♣; 5♣; 6♣; 7♣; 8♣; 9♣; 10♣; J♣; Q♣; K♣; A♣; 2♦; 3♦; 4♦; 5♦; 6♦; \
    7♦; 8♦; 9♦; 10♦; J♦; Q♦; K♦; A♦; 2♥; 3♥; 4♥; 5♥; 6♥; 7♥; 8♥; 9♥; 10♥; J♥; \

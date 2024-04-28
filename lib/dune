@@ -1,9 +1,9 @@
 (library
  (inline_tests)
  (name camel_flush)
+ (public_name camel_flush)
  (preprocess
   (pps ppx_inline_test))
  (instrumentation
   (backend bisect_ppx))
- (libraries unix)
- )
+ (libraries unix))

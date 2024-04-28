@@ -150,6 +150,8 @@ let determine_player_action player game =
           print_action player ("check", 0)
         else if r < 80 then print_action player ("call", 0)
         else if r = 99 then print_action player ("raise", player.chips)
+        else if player.chips - game.current_bet <= 0 then
+          print_action player ("fold", 0)
         else
           print_action player
             ( "raise",
@@ -164,7 +166,7 @@ let bet_round game =
 
 let to_string game =
   Printf.sprintf
-    "***GAME INFO***\n\
+    "***GAME INFO BEGIN***\n\
      Community Cards: %s\n\
      Pot: %d\n\
      My Cards: %s\n\

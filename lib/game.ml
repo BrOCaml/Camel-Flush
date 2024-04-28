@@ -33,7 +33,12 @@ let deal game =
 
 let deal_community game =
   let card, new_deck = Deck.draw game.deck in
-  { game with deck = new_deck; community_cards = card :: game.community_cards }
+  {
+    game with
+    deck = new_deck;
+    community_cards = card :: game.community_cards;
+    current_bet = 0;
+  }
 
 let bet game player chips =
   {
@@ -47,8 +52,6 @@ let bet game player chips =
   }
 
 let all_in game player = bet game player player.chips
-let check game player = bet game player 0
-let call game player = bet game player game.current_bet
 
 let raise game (player : player) chips =
   if chips < game.current_bet then
@@ -66,6 +69,9 @@ let raise game (player : player) chips =
       current_bet = chips;
     }
 
+let check game player = raise game player 0
+let call game player = raise game player game.current_bet
+
 let fold game player =
   {
     game with
@@ -73,18 +79,12 @@ let fold game player =
       List.map (fun p -> if p = player then Player.fold p else p) game.players;
   }
 
-let action game player action ?(chips = 0) () =
+let action game player action chips () =
   match action with
   | "check" -> check game player
   | "call" -> call game player
   | "raise" -> raise game player chips
   | "fold" -> fold game player
-  | _ -> failwith "Invalid action"
-
-let turn game player action_str chips =
-  match action_str with
-  | "raise" -> action game player action_str ~chips ()
-  | "check" | "call" | "fold" -> action game player action_str ()
   | _ -> failwith "Invalid action"
 
 let print_action (player : Player.t) (action, chips) =
@@ -93,7 +93,7 @@ let print_action (player : Player.t) (action, chips) =
   in
   let _ =
     match action with
-    | "raise" -> print_endline (" " ^ string_of_int chips ^ " chips\n")
+    | "raise" -> print_endline (" to " ^ string_of_int chips ^ " chips\n")
     | _ -> print_endline "\n"
   in
   (action, chips)
@@ -132,11 +132,13 @@ let determine_player_action player game =
         if List.length cards = 2 then
           if player.chips < game.current_bet || r < 30 then
             print_action player ("fold", 0)
-          else if r < 60 then print_action player ("check", 0)
+          else if game.current_bet = 0 && r < 60 then
+            print_action player ("check", 0)
           else print_action player ("call", 0)
         else if r < 50 then print_action player ("fold", 0)
-        else if r < 70 then print_action player ("check", 0)
-        else if player.chips < game.current_bet then
+        else if game.current_bet = 0 && r < 70 then
+          print_action player ("check", 0)
+        else if player.chips <= game.current_bet then
           print_action player ("fold", 0)
         else
           print_action player
@@ -144,7 +146,8 @@ let determine_player_action player game =
               game.current_bet + Random.int (player.chips - game.current_bet) )
     | _ ->
         if player.chips < game.current_bet then ("fold", 0)
-        else if r < 70 then print_action player ("check", 0)
+        else if game.current_bet = 0 && r < 70 then
+          print_action player ("check", 0)
         else if r < 80 then print_action player ("call", 0)
         else if r = 99 then print_action player ("raise", player.chips)
         else
@@ -156,7 +159,7 @@ let bet_round game =
   List.fold_left
     (fun current_game player ->
       let action_str, chips = determine_player_action player current_game in
-      turn current_game player action_str chips)
+      action current_game player action_str chips ())
     game game.players
 
 let to_string game =
@@ -164,12 +167,11 @@ let to_string game =
     "***GAME INFO***\n\
      Community Cards: %s\n\
      Pot: %d\n\
-     Current Bet: %d\n\
      My Cards: %s\n\
      My Chips: %d\n\
      ***GAME INFO END***\n"
     (String.concat " " (List.map PokerCard.to_string game.community_cards))
-    game.pot game.current_bet
+    game.pot
     (String.concat " "
        (List.map PokerCard.to_string (List.hd game.players).hand))
     (List.hd game.players).chips
@@ -216,3 +218,5 @@ let determine_winner game =
       in
       let initial_winner = player in
       find_winner players initial_winner []
+
+let get_pot game = game.pot

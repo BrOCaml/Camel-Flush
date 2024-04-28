@@ -36,7 +36,7 @@ val raise : t -> player -> int -> t
 (** [raise p n] is the new game status with player [p] bet [n] more chips than
     the previous player *)
 
-val action : t -> player -> string -> ?chips:int -> unit -> t
+val action : t -> player -> string -> int -> unit -> t
 (** [action t p n] is the new game status with player [p] bet [n] chips *)
 
 val bet_round : t -> t
@@ -59,3 +59,6 @@ val determine_winner : t -> string
 val print_best_combos : t -> unit
 (** [players_best_combos game] is the string representation of each players best
     combo*)
+
+val get_pot : t -> int
+(** [get_pot t] is the amount of chips in the pot *)

@@ -1,8 +1,260 @@
+commit 8fd082d870605ab56b8c8da62ad8eed2b8a37c37
+Merge: 33f227d 542b61f
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 15:02:48 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush into Mohamed
+
+commit 33f227d32000828ebe5181af45ae05a496347138
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 15:01:57 2024 -0400
+
+    Removed bogue library.
+
+commit 542b61f173f03ba6114e3bf0afb59055c357aca7
+Merge: 96019fd a89a45b
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 14:54:52 2024 -0400
+
+    Merge branch 'main' of https://github.com/BrOCaml/Camel-Flush
+
+commit 96019fdc57d77ed8f4f4f80b77df6040718f5bfc
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 14:54:50 2024 -0400
+
+    Revise folding logic
+    
+    - Reimplemented Game.fold
+    - Player keep folding after they fold
+
+commit a89a45b2171b9cd32e49d8855a0992ebda79084a
+Merge: 23357d7 f5f72ab
+Author: Mohamed Katary <157431422+Mohamedk67@users.noreply.github.com>
+Date:   Sun Apr 28 14:35:53 2024 -0400
+
+    Merge pull request #16 from BrOCaml/Mohamed
+    
+    Mohamed
+
+commit f5f72abd873ae2219dd673adda6505e7ecfe4fe7
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 14:35:12 2024 -0400
+
+    Added tests for higher combos.
+
+commit 260ac770376df676cef5bb92230622736cdab446
+Merge: 7bfc1cb 7ea808e
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 14:34:58 2024 -0400
+
+    Merge remote-tracking branch 'origin/main' into Mohamed
+
+commit 23357d7ad72c1ea8970c2a5b5e4e5c78219aa30b
+Merge: 2458c68 b0f6111
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sun Apr 28 14:02:18 2024 -0400
+
+    Merge pull request #15 from BrOCaml/ai
+    
+    Ai functionality
+
+commit b0f611165313ad43157752130e18495e45bb3e07
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sun Apr 28 13:58:55 2024 -0400
+
+    add note for number representation
+
+commit 68ca5c18566c61e7b21058c7df7c8e8b8bcdd163
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sun Apr 28 13:58:39 2024 -0400
+
+    fix potential issue
+
+commit 2458c68937c48d6d3487e39b0c4a073073e4d40b
+Author: Mohamed Katary <157431422+Mohamedk67@users.noreply.github.com>
+Date:   Sun Apr 28 01:39:15 2024 -0400
+
+    Update README.md
+    
+    lol
+
+commit 71e4395b5f0266ac01dc2b37835a85e1e06e4cc9
+Merge: 7ea808e 7bfc1cb
+Author: Mohamed Katary <157431422+Mohamedk67@users.noreply.github.com>
+Date:   Sun Apr 28 01:37:07 2024 -0400
+
+    Merge pull request #14 from BrOCaml/Mohamed
+    
+    Mohamed
+
+commit 7bfc1cba0dab2d49e94cb6d8b1f4b9a0c2b25048
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 01:27:57 2024 -0400
+
+    Implemented combo comparsions and winner
+    determination functions.
+      - Added a functions to compare two combos
+      - Made functions to recongnize higher hands of
+      the same combos
+      - Added function to determine the winner of a game
+      - Added message greetings to the game
+      - Added functionality to print everyone's hand
+
+commit 6262655226fd3460820d2e34136338977ebf4ff3
+Merge: 91e86f9 4e42e05
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Fri Apr 12 14:14:32 2024 -0400
+
+    Merge remote-tracking branch 'origin/huajie' into Mohamed
+
+commit 91e86f9a4769969054a8881ad0f3514820fa5514
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Fri Apr 12 14:14:01 2024 -0400
+
+    Added test cases
+
+commit cf066cbf617d1bec4ba769f4e30d88492649e899
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:22:32 2024 -0400
+
+    add code format support
+
+commit ef6ea41b5223f97cfd6656846faa5fcd027db6c1
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:22:22 2024 -0400
+
+    add ai module
+    
+    -wrote methods and interface to support decision making
+
+commit 8d8cc284ca80dcb60793b0288e015d5e254b4cd0
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:21:59 2024 -0400
+
+    add ai functionality
+
+commit 058161d28d4f26ff194e6896ee80a017cd246064
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:21:48 2024 -0400
+
+    add unix library
+
+commit bee0b2d09e9aff8ac39ccaffeb6423298764d78f
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:21:33 2024 -0400
+
+    add python file as files to dune
+
+commit e3709648391a1d153be9d4ebea65380e40d35073
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:21:23 2024 -0400
+
+    add instructions
+
+commit 6dd7ceff4be51643e2cc859dd1364f0eb36a9d7a
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:21:16 2024 -0400
+
+    add requirements.txt for python
+
+commit 42f3240577dd9af6a734109df2101f930ea879ca
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:20:53 2024 -0400
+
+    add python file
+
+commit f90c9c22ad7f53ead42b1e14d715ed57430dda1a
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Tue Apr 2 01:20:38 2024 -0400
+
+    add model
+
+commit 7ea808e685d813bd507987f3340c7982ed2d34bd
+Merge: bf6eaf8 4e42e05
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Wed Mar 27 20:37:26 2024 -0400
+
+    Merge pull request #12 from BrOCaml/huajie
+    
+    gitlog and adjust INSTALL.md
+
+commit 4e42e0599f50d07bcb282d86649a5ba440fe7578
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 20:36:13 2024 -0400
+
+    modified INSTALL.md
+
+commit d57cae9cd3d76bc7fcd6cb19c302f1510274340e
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Wed Mar 27 20:28:38 2024 -0400
+
+    commiting gitlog
+
+commit bf6eaf8b55b9f31141dd3a3b0cca392f83f34625
+Merge: 7a056c7 d3bbfb3
+Author: Frank <144753882+Shengle-Dai@users.noreply.github.com>
+Date:   Wed Mar 27 17:05:03 2024 -0400
+
+    Merge pull request #11 from BrOCaml/Frank
+    
+    Fix best_combo error
+
+commit d3bbfb3cb382f51fe2763603bc410be62b9312e1
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Wed Mar 27 17:04:39 2024 -0400
+
+    Fix best_combo error
+    
+    - Rerwote the Combo.best_combo method
+
+commit 7a056c7ea3e16eb86fa6e02d41f8bbcfff485c02
+Merge: 733cce6 e11740a
+Author: Frank <144753882+Shengle-Dai@users.noreply.github.com>
+Date:   Wed Mar 27 16:51:34 2024 -0400
+
+    Merge pull request #10 from BrOCaml/Frank
+    
+    Implement checking best combo functionality
+
+commit e11740a909dcfe39145e2171580e2e82932fe45f
+Merge: b8dea76 733cce6
+Author: Frank <144753882+Shengle-Dai@users.noreply.github.com>
+Date:   Wed Mar 27 16:51:25 2024 -0400
+
+    Merge branch 'main' into Frank
+
+commit b8dea7676eb1c4eb1a407caec6698af4c195f22f
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Wed Mar 27 16:50:11 2024 -0400
+
+    Implement checking best combo functionality
+    
+    - Wrote main program to keep going rounds
+    - Revise game and combo compilation units
+
+commit 733cce6f624d73e1cb52ce76b2d85f4ce723ec4d
+Merge: 757e39a 8c7c7b2
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Wed Mar 27 12:22:30 2024 -0400
+
+    Merge pull request #9 from BrOCaml/huajie
+    
+    update INSTALL.md
+
 commit 8c7c7b292be7d692fa01a559550cf7d9d05abf79
 Author: Huajie Zhong <hz642@cornell.edu>
 Date:   Wed Mar 27 12:21:42 2024 -0400
 
     update INSTALL.md
+
+commit 757e39a2cfe3869f6c0bfa4a502e5270b2f27636
+Merge: a217417 b70c6f6
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Wed Mar 27 12:19:47 2024 -0400
+
+    Merge pull request #8 from BrOCaml/huajie
+    
+    Huajie
 
 commit b70c6f602bdd64a91e345e608991e11fdebd151a
 Author: Huajie Zhong <hz642@cornell.edu>

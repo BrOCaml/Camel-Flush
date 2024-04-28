@@ -99,7 +99,12 @@ let print_action (player : Player.t) (action, chips) =
   (action, chips)
 
 let determine_player_action player game =
-  if Player.is_fold player then ("fold", 0)
+  if Player.is_fold player then
+    let player_string =
+      if player.id = 0 then "You" else "Player " ^ string_of_int player.id
+    in
+    let () = print_endline (player_string ^ " already folded") in
+    ("fold", 0)
   else if player = List.hd game.players then
     (* User input for the first player *)
     let () = print_endline "Enter your action (check, call, raise, fold): " in

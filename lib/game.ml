@@ -130,12 +130,12 @@ let determine_player_action player game =
     match decision with
     | 1 ->
         if List.length cards = 2 then
-          if player.chips < game.current_bet || r < 30 then
+          if player.chips < game.current_bet || r < 5 then
             print_action player ("fold", 0)
           else if game.current_bet = 0 && r < 60 then
             print_action player ("check", 0)
           else print_action player ("call", 0)
-        else if r < 50 then print_action player ("fold", 0)
+        else if r < 10 then print_action player ("fold", 0)
         else if game.current_bet = 0 && r < 70 then
           print_action player ("check", 0)
         else if player.chips <= game.current_bet then
@@ -145,7 +145,7 @@ let determine_player_action player game =
             ( "raise",
               game.current_bet + Random.int (player.chips - game.current_bet) )
     | _ ->
-        if player.chips < game.current_bet then ("fold", 0)
+        if player.chips < game.current_bet then print_action player ("fold", 0)
         else if game.current_bet = 0 && r < 70 then
           print_action player ("check", 0)
         else if r < 80 then print_action player ("call", 0)

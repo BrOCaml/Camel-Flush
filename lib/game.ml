@@ -70,9 +70,7 @@ let fold game player =
   {
     game with
     players =
-      List.map
-        (fun p -> if p = player then Player.incr_chips p game.pot else p)
-        game.players;
+      List.map (fun p -> if p = player then Player.fold p else p) game.players;
   }
 
 let action game player action ?(chips = 0) () =
@@ -101,7 +99,8 @@ let print_action (player : Player.t) (action, chips) =
   (action, chips)
 
 let determine_player_action player game =
-  if player = List.hd game.players then
+  if Player.is_fold player then ("fold", 0)
+  else if player = List.hd game.players then
     (* User input for the first player *)
     let () = print_endline "Enter your action (check, call, raise, fold): " in
     let action_str = read_line () in

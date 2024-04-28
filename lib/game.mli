@@ -11,7 +11,7 @@ type t
 (** The type of the game status *)
 
 val init : int -> t
-(** [init] is the initial game status *)
+(** [init n] is the initial game status with n players *)
 
 val deal : t -> t
 (** [deal t] is the new game status with each player dealt two cards *)
@@ -23,7 +23,7 @@ val bet : t -> player -> int -> t
 (** [bet t p n] is the new game status with player [p] bet [n] chips *)
 
 val all_in : t -> player -> t
-(** [all_in t p] is the new game status with player [p] bet all thier chips *)
+(** [all_in t p] is the new game status with player [p] bet all their chips *)
 
 val check : t -> player -> t
 (** [check p] is the new game status with player [p] bet [0] chips *)
@@ -51,3 +51,11 @@ val to_string : t -> string
 val player_best_combo : t -> string
 (** [player_best_combo t] is the string representation of the player's best hand
     in the game *)
+
+val determine_winner : t -> string
+(** [determine_winner game] is the string representation of the player with the
+    highest combo in the game, or Tie if it's a tie *)
+
+val print_best_combos : t -> unit
+(** [players_best_combos game] is the string representation of each players best
+    combo*)

@@ -50,9 +50,11 @@ let all_in game player = bet game player player.chips
 let check game player = bet game player 0
 let call game player = bet game player game.current_bet
 
-let raise game player chips =
+let raise game (player : player) chips =
   if chips < game.current_bet then
     failwith "Raise must be greater than current bet"
+    (* player cannot raise more chips than their chips *)
+  else if chips > player.chips then all_in game player
   else
     {
       game with
@@ -113,11 +115,51 @@ let bet_round game =
     game game.players
 
 let to_string game =
-  Printf.sprintf "Community Cards: %s\nPot: %d\nCurrent bet: %d\nMy Cards: %s"
-    (String.concat "," (List.map PokerCard.to_string game.community_cards))
+  Printf.sprintf
+    "Community Cards: %s\nPot: %d\nCurrent Bet: %d\nMy Cards: %s\nMy Chips: %d"
+    (String.concat " " (List.map PokerCard.to_string game.community_cards))
     game.pot game.current_bet
-    (String.concat ","
+    (String.concat " "
        (List.map PokerCard.to_string (List.hd game.players).hand))
+    (List.hd game.players).chips
 
 let player_best_combo game =
   Combo.best_combo (game.community_cards @ (List.hd game.players).hand)
+
+let print_best_combos game =
+  List.iter
+    (fun player ->
+      let best_combo =
+        Combo.best_combo (game.community_cards @ (player : player).hand)
+      in
+      print_endline ("Player " ^ string_of_int player.id ^ ":\n" ^ best_combo))
+    (List.tl game.players)
+
+let check_higher_hand c1 c2 =
+  let v = Combo.compare_hands c1 c2 in
+  if v = 1 then Some c1 else if v = -1 then Some c2 else None
+
+let determine_winner game =
+  match game.players with
+  | [] -> "No players in the game"
+  | [ player ] -> Player.to_string player
+  | player :: players ->
+      let rec find_winner (players : player list) (current_winner : player)
+          (tied_players : player list) =
+        let current_winner_cards = game.community_cards @ current_winner.hand in
+        match players with
+        | [] ->
+            if List.length tied_players = 0 then
+              Player.to_string_name current_winner
+            else "Tie"
+        | player :: rest -> (
+            let player_cards = game.community_cards @ player.hand in
+            match check_higher_hand player_cards current_winner_cards with
+            | Some cards ->
+                if cards = current_winner_cards then
+                  find_winner rest current_winner []
+                else find_winner rest player []
+            | None -> find_winner rest current_winner (player :: tied_players))
+      in
+      let initial_winner = player in
+      find_winner players initial_winner []

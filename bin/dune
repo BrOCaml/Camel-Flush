@@ -1,4 +1,4 @@
 (executable
  (public_name camel_flush)
  (name main)
- (libraries camel_flush))
+ (libraries camel_flush bogue))

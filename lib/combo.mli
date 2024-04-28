@@ -43,3 +43,8 @@ val is_one_pair : t -> bool
 
 val best_combo : PokerCard.t list -> string
 (**[best_combo l] is the string representation of the best combo in the list [l]*)
+
+val compare_hands : PokerCard.t list -> PokerCard.t list -> int
+(** [compare card_list_1 card_list_2] is 1 if [card_list_1] has a higher combo
+    than [card_list_2], -1 if [card_list1] has a lower combo than [combo_list2]
+    and 0 if [card_list1] and [card_list2] have the same highest combo *)

@@ -1,3 +1,96 @@
+commit 9e7bd1aa87b83cee9878ba34b35696775b822f9e
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 17:13:26 2024 -0400
+
+    Fix random.it bug
+
+commit 64b7f0f4c8b60ea9f471ac87a6246a735dc9efe7
+Merge: 0a038a6 07e9d62
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 16:54:17 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush into Mohamed
+
+commit 07e9d6229d8b9262b06c75a985958e238b827eda
+Merge: 9df38f8 cee944e
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sun Apr 28 16:54:14 2024 -0400
+
+    Merge pull request #18 from BrOCaml/huajie
+    
+    add makefile with various command
+
+commit cee944ea72585760fccaef5bb429b9ef2ab500fb
+Merge: d8cc7a8 9df38f8
+Author: Huajie Zhong <64655896+huajie-zhong@users.noreply.github.com>
+Date:   Sun Apr 28 16:53:59 2024 -0400
+
+    Merge branch 'main' into huajie
+
+commit 9df38f80a3aeebac3e694ff02a530c2bb2aaa78e
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 16:53:21 2024 -0400
+
+    Adjust the logic
+
+commit b3e55d1d8a1259dcae12686a74cd8d19c2ab62f8
+Merge: 2199e9a cf8da96
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 16:10:22 2024 -0400
+
+    Merge branch 'main' of https://github.com/BrOCaml/Camel-Flush
+
+commit 2199e9a30710b1f820db2eb73151ebdd1c3746a9
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 16:10:21 2024 -0400
+
+    Message prettier
+
+commit 0a038a651014e95f024becfc54de78e239259a4f
+Merge: f9e4f6d cf8da96
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 15:52:54 2024 -0400
+
+    Merge branch 'main' of github.com:Camel-Flush/Camel-Flush into Mohamed
+
+commit f9e4f6d4f76ab61bf903b81ecab1677906663ab3
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 15:51:41 2024 -0400
+
+    Added test plan to test_camel_flush.ml.
+
+commit daacae282add680378a0c3333a2d6e59ddecd879
+Author: Mohamed <mtk67@cornell.edu>
+Date:   Sun Apr 28 15:49:50 2024 -0400
+
+    Add test plan to test_camel_flush.ml.
+
+commit cf8da964efe6e26d78e4945174c6c9c6c643a772
+Merge: 923770f 8fd082d
+Author: Mohamed Katary <157431422+Mohamedk67@users.noreply.github.com>
+Date:   Sun Apr 28 15:47:39 2024 -0400
+
+    Merge pull request #17 from BrOCaml/Mohamed
+    
+    Mohamed
+
+commit d8cc7a8740e7d726bc0e2e1274218dd707f85598
+Author: Huajie Zhong <hz642@cornell.edu>
+Date:   Sun Apr 28 15:45:47 2024 -0400
+
+    add makefile with various command
+    
+    -build: dune build
+    -doc: auto doc generation
+    -test: dune test
+    -clean: dune clean
+
+commit 923770f4418bcc247dfbe6d0c86a294ab566e0d1
+Author: Frank Dai <sd924@cornell.edu>
+Date:   Sun Apr 28 15:04:10 2024 -0400
+
+    Change the text indicating player folding
+
 commit 8fd082d870605ab56b8c8da62ad8eed2b8a37c37
 Merge: 33f227d 542b61f
 Author: Mohamed <mtk67@cornell.edu>

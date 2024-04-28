@@ -129,6 +129,8 @@ let determine_player_action player game =
           else print_action player ("call", 0)
         else if r < 50 then print_action player ("fold", 0)
         else if r < 70 then print_action player ("check", 0)
+        else if player.chips < game.current_bet then
+          print_action player ("fold", 0)
         else
           print_action player
             ( "raise",
@@ -138,7 +140,10 @@ let determine_player_action player game =
         else if r < 70 then print_action player ("check", 0)
         else if r < 80 then print_action player ("call", 0)
         else if r = 99 then print_action player ("raise", player.chips)
-        else print_action player ("raise", Random.int player.chips)
+        else
+          print_action player
+            ( "raise",
+              game.current_bet + Random.int (player.chips - game.current_bet) )
 
 let bet_round game =
   List.fold_left

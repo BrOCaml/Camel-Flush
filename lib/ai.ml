@@ -16,7 +16,9 @@ let execute_prediction arg =
     let _ = close_process_full (ic, oc, ec) in
     int_of_string output
   with _ ->
-    let _ = print_string "error with ai" in
+    let _ =
+      print_endline "Error with AI\nDid you install all the dependencies?"
+    in
     0
 
 let predict t =

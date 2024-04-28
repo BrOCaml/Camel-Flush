@@ -185,7 +185,7 @@ let test_is_straight_flush_fail _ =
       (Hearts, Three);
       (Hearts, Four);
       (Hearts, Five);
-      (Hearts, Seven);
+      (Hearts, Eight);
     ]
   in
   assert_bool "straight flush fail"
@@ -388,7 +388,236 @@ let combo_test_suite =
          "test_is_pair_fail" >:: test_is_one_pair_fail;
        ]
 
+(** higher combo tests *)
+
+let test_higher_royal_flush _ =
+  let c1 =
+    [
+      (Hearts, Ten);
+      (Hearts, Jack);
+      (Hearts, Queen);
+      (Hearts, King);
+      (Hearts, Ace);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Ten);
+      (Spades, Jack);
+      (Spades, Queen);
+      (Spades, King);
+      (Spades, Ace);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_straight_flush _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Hearts, Three);
+      (Hearts, Four);
+      (Hearts, Five);
+      (Hearts, Six);
+    ]
+  in
+  let c2 =
+    [
+      (Hearts, Four);
+      (Hearts, Five);
+      (Hearts, Six);
+      (Hearts, Seven);
+      (Hearts, Eight);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_fullhouse _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Two);
+      (Spades, Three);
+      (Hearts, Three);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Four);
+      (Diamonds, Four);
+      (Clubs, Four);
+      (Diamonds, Five);
+      (Clubs, Five);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_fourofakind _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Two);
+      (Spades, Two);
+      (Hearts, Three);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Three);
+      (Diamonds, Three);
+      (Clubs, Three);
+      (Hearts, Three);
+      (Spades, Four);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_hgher_flush _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Hearts, Four);
+      (Hearts, Six);
+      (Hearts, Eight);
+      (Hearts, Seven);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Two);
+      (Spades, Four);
+      (Spades, Six);
+      (Spades, Eight);
+      (Spades, King);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_three_of_a_kind _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Two);
+      (Spades, Three);
+      (Hearts, Four);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Two);
+      (Diamonds, Three);
+      (Clubs, Three);
+      (Hearts, Three);
+      (Spades, Four);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_two_pair _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Three);
+      (Spades, Three);
+      (Hearts, Four);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Five);
+      (Diamonds, Five);
+      (Clubs, Ace);
+      (Hearts, Four);
+      (Spades, Four);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_two_pair_kicker _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Three);
+      (Spades, Three);
+      (Hearts, Four);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Two);
+      (Clubs, Two);
+      (Diamonds, Three);
+      (Hearts, Three);
+      (Spades, Four);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) 0
+
+let test_higher_one_pair _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Three);
+      (Spades, Four);
+      (Hearts, Five);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Five);
+      (Diamonds, Five);
+      (Clubs, King);
+      (Hearts, Queen);
+      (Spades, Ten);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) (-1)
+
+let test_higher_one_pair_kicker _ =
+  let c1 =
+    [
+      (Hearts, Two);
+      (Diamonds, Two);
+      (Clubs, Three);
+      (Spades, Four);
+      (Hearts, Five);
+    ]
+  in
+  let c2 =
+    [
+      (Spades, Two);
+      (Clubs, Two);
+      (Diamonds, Three);
+      (Hearts, Four);
+      (Spades, Five);
+    ]
+  in
+  assert_equal (Combo.compare_hands c1 c2) 0
+
+let higher_combo_test_suite =
+  "higher_combo_test_suite"
+  >::: [
+         "test_higher_royal_flush" >:: test_higher_royal_flush;
+         "test_higher_straight_flush" >:: test_higher_straight_flush;
+         "test_higher_fullhouse" >:: test_higher_fullhouse;
+         "test_higher_fourofakind" >:: test_higher_fourofakind;
+         "test_hgher_flush" >:: test_hgher_flush;
+         "test_higher_three_of_a_kind" >:: test_higher_three_of_a_kind;
+         "test_higher_two_pair" >:: test_higher_two_pair;
+         "test_higher_two_pair_kicker" >:: test_higher_two_pair_kicker;
+         "test_higher_one_pair" >:: test_higher_one_pair;
+         "test_higher_one_pair_kicker" >:: test_higher_one_pair_kicker;
+       ]
+
+(** player tests *)
 let player = Player.create 0 [] 100
+
 let test_player_id _ = assert_equal player.id 0
 let test_player_hand _ = assert_equal player.hand []
 let test_player_chips _ = assert_equal player.chips 100
@@ -416,4 +645,5 @@ let _ = run_test_tt_main test_suite
 let _ = run_test_tt_main card_suite
 let _ = run_test_tt_main deck_suite
 let _ = run_test_tt_main combo_test_suite
+let _ = run_test_tt_main higher_combo_test_suite
 let _ = run_test_tt_main player_suite

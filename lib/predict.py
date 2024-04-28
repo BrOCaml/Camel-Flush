@@ -3,9 +3,9 @@ from itertools import combinations
 from joblib import dump, load
 import numpy as np
 from collections import defaultdict
-import sys
+import sys  
 
-suits = ['c', 'd', 'h', 's']  # clubs, diamonds, hearts, spades
+suits = ['c', 'd', 'h', 's']  # clubs, diamonds, hearts, spades 
 ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T',
          'J', 'Q', 'K', 'A']  # 2-10, Jack, Queen, King, Ace
 
@@ -16,7 +16,7 @@ card_order_dict = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7,
 
 
 def check_straight_flush(hand):
-    if check_flush(hand) and check_straight(hand):
+    if check_flush(hand) and check_straight(hand): 
         return True
     else:
         return False

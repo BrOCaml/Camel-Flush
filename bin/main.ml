@@ -1,10 +1,9 @@
+(** @authors: Mohamed Katary (mtk67), Frank Dai (sd924), Huajie Zhong (hz642) *)
+
 open Camel_flush
 
 let () = Random.self_init ()
-
-let game =
-  Game.init 8 |> Game.deal |> Game.deal |> Game.deal_community
-  |> Game.deal_community |> Game.deal_community
+let game = Game.init 8 |> Game.deal |> Game.deal
 
 (* Greet *)
 let () =
@@ -14,20 +13,32 @@ let () =
   print_endline ("Hello " ^ name ^ ", " ^ "let's play!\n")
 
 (* let user = PokerGame.get_nth_player game 0 *)
-let () = print_endline (Game.to_string game)
 
 let () =
   (* First round *)
   print_endline "---First Round---";
-  let game = Game.bet_round game in
-  let game = Game.deal_community game in
   print_endline (Game.to_string game);
+  let game = Game.bet_round game in
 
   (* Second round *)
   print_endline "---Second Round---";
-  let game = Game.bet_round game in
+  let game = Game.deal_community game in
+  let game = Game.deal_community game in
   let game = Game.deal_community game in
   print_endline (Game.to_string game);
+  let game = Game.bet_round game in
+
+  (* Third round *)
+  print_endline "---Third Round---";
+  let game = Game.deal_community game in
+  print_endline (Game.to_string game);
+  let game = Game.bet_round game in
+
+  (* Fourth round *)
+  print_endline "---Fourth Round---";
+  let game = Game.deal_community game in
+  print_endline (Game.to_string game);
+  let game = Game.bet_round game in
 
   (* User best combo *)
   print_endline ("Your Best Combo is: \n" ^ Game.player_best_combo game);
@@ -40,7 +51,7 @@ let () =
   let winner = Game.determine_winner game in
   if winner = "Tie" then print_endline "It's a Tie!"
   else if winner = "Player 0" then
-    print_endline ("You Win " ^ string_of_int (Game.get_pot game) ^ " chips!")
+    print_endline ("You win " ^ string_of_int (Game.get_pot game) ^ " chips!")
   else
     print_endline
       (Game.determine_winner game ^ " wins "

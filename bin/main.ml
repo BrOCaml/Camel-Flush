@@ -13,7 +13,6 @@ let () =
   print_endline ("Hello " ^ name ^ ", " ^ "let's play!\n")
 
 (* let user = PokerGame.get_nth_player game 0 *)
-let () = print_endline (Game.to_string game)
 
 let () =
   (* First round *)

@@ -10,6 +10,18 @@ type t = {
   community_cards : card list;
 }
 
+(**AF: [{deck, players, pot, current_bet, community_cards}] is a game with the
+   set of [deck], with [players] in, and with [pot] pot, the [current_bet], and
+   with community cards given by [community_cards]*)
+
+(** RI: A valid game state [t] satisfies the following conditions:
+    - [deck] is a valid deck of cards, with no duplicates and size <= 52.
+    - [players] is a non-empty list of players, each with a unique identifier.
+    - [pot] is a non-negative integer.
+    - [current_bet] is a non-negative integer.
+    - [community_cards] is a list of cards with size <= 5, with no duplicates
+      and all cards in [community_cards] are not in [deck]. *)
+
 let init n =
   {
     deck = Deck.init |> Deck.shuffle;

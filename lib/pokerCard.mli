@@ -20,7 +20,14 @@ type rank =
   | Ace
 
 type t = suit * rank
-(** representation type of the card *)
+
+(** AF: A card [t] represents a playing card with a [suit] and a [rank]. For
+    example, (Spades, King) represents the King of Spades. *)
+
+(** RI: A valid card [t] satisfies the following conditions:
+    - [suit] is one of the four suits: Spades, Hearts, Diamonds, or Clubs.
+    - [rank] is one of the 13 ranks: Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack,
+      Queen, or King. *)
 
 val compare : t -> t -> int
 (** [compare a b] is the indication for order of a and b. If negative then a

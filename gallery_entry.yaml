@@ -21,12 +21,10 @@ git-repo: "https://github.com/BrOCaml/Camel-Flush"
 demo-video-url: ""
 # Write a short, attention-grabbing description of your project.
 desc: >
-  Our project is an Texas-Holdem, but with a camel twist. It is player vs computer, 
-  where the player can set the difficulty level of the game out of {easy, medium, hard}. 
-  Each level corresponds to the advantage level the computer has over the player, 
-  where level hard indicates the computer is very likely to win. The interace is 
-  simple but offers enough information about the player's hand and the table cards 
-  {the flop, the turn, the river}. 
+  Our project is a Texas-Holdem, but with a camel twist. It is player vs computer, 
+  where the computer plays for 7 different players. The user player always plays first. 
+  The interace is simple but offers enough information about the community cards, 
+  pot, player's cards and chips {the flop, the turn, the river}. 
   the flop: the first three community cards.
   the turn: the fourth community card.
   the river: the fifth and final community card.
@@ -41,7 +39,7 @@ desc: >
   five cards out of the seven total cards (your two hole cards and the five community 
   cards). 
 
-  After each game, the player is congratulated! 
+  After each game, the player is announced! 
 
 
 

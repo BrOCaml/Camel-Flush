@@ -132,7 +132,8 @@ let determine_player_action player game =
   else
     let () =
       print_endline
-        ("AI's turn\n" ^ "Now is player " ^ string_of_int player.id ^ "'s turn")
+        ("AI's turn\n" ^ "Now it's player " ^ string_of_int player.id
+       ^ "'s turn")
     in
     let () = Random.self_init () in
     let r = Random.int 100 in

@@ -22,24 +22,31 @@ demo-video-url: ""
 # Write a short, attention-grabbing description of your project.
 desc: >
   Our project is a Texas-Holdem, but with a camel twist. It is player vs computer, 
-  where the computer plays for 7 different players. The user player always plays first. 
-  The interace is simple but offers enough information about the community cards, 
-  pot, player's cards and chips {the flop, the turn, the river}. 
-  the flop: the first three community cards.
-  the turn: the fourth community card.
-  the river: the fifth and final community card.
+  where the computer plays for 7 different players. The user player always plays 
+  first each round, there are four rounds. The interace is simple but offers 
+  enough information about the community cards, pot, player's cards and chips. 
+  Each round, each player can fold, call, raise or check. 
 
-  Each player starts with the same set amount of "bet" (could be cool to 
-  call them "Camel-Coins") and 2 arbitrary cards, the 'hole cards. During each round, 
-  the player can "fold", "call", "raise" or "all-in." Over the game, five more cards are 
-  (eventually) dealt and shown to the players. Each player is free to use these cards 
-  in combination with their cards to build a five-card poker hand. 
+  Note that our implementation is slightly different than the actual game, our 
+  game is over after four rounds. At which point if there are still players in 
+  the game, the winner is announced with their respective earnings, and if there 
+  are no players left, there is no winner. 
 
-  Your mission is to construct your five-card poker hands using the best available 
-  five cards out of the seven total cards (your two hole cards and the five community 
-  cards). 
+  Each player starts with 100 chips (camel chips) and the winner is the player 
+  with the highest hand after the fourth round. Here are the three stages of 
+  dealing the community cards:
+  - the flop: the first three community cards.
+  - the turn: the fourth community card.
+  - the river: the fifth and final community card.
 
-  After each game, the player is announced! 
+  Your mission is to construct a five-card poker hand using the best available 
+  five cards out of the seven total cards (your two hole cards and the five 
+  community cards). 
+
+  PLEASE BE AWARE: the computer players are (not) very smart, so play at 
+  your own risk.  
+
+  Have Fun! 
 
 
 

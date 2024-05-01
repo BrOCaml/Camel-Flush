@@ -55,7 +55,7 @@ let () =
   else
     let winner = Game.determine_winner game in
     if winner = "No players in the game" then
-      print_endline "No players in the game."
+      print_endline "No more players in the game."
     else
       print_endline
         (winner ^ " wins " ^ string_of_int (Game.get_pot game) ^ " chips!")

@@ -11,3 +11,8 @@ test:
 clean:
 	rm -rf _coverage
 	dune clean
+
+.PHONY: install
+install:
+	pip install -r requirements.txt
+	opam install bisect_ppx ppx_inline_test ounit2 

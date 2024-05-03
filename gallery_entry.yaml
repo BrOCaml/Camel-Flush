@@ -3,12 +3,12 @@
 group:
   - name: Huajie Zhong
     netid: hz642
-  - name: Frank Dai 
+  - name: Frank Dai
     netid: sd924
-  - name : Mohamed Katary 
+  - name: Mohamed Katary
     netid: mtk67
 # Your PM.
-pm:  
+pm:
   name: Atulya Lohani
   netid: al878
 # Set to false if you don't want your gallery entry to be public.
@@ -25,12 +25,14 @@ desc: >
   where the computer plays for 7 different players. The user player always plays 
   first each round, there are four rounds. The interace is simple but offers 
   enough information about the community cards, pot, player's cards and chips. 
-  Each round, each player can fold, call, raise or check. 
+  Each round, each player can fold, call, raise or check. If you raise to an 
+  amount more than the amount of chips you have, you will go all-in.
 
   Note that our implementation is slightly different than the actual game, our 
   game is over after four rounds. At which point if there are still players in 
   the game, the winner is announced with their respective earnings, and if there 
-  are no players left, there is no winner. 
+  are no players left, there is no winner. Also, remember that you (the user) is 
+  always the first person to decide your action in each round.
 
   Each player starts with 100 chips (camel chips) and the winner is the player 
   with the highest hand after the fourth round. Here are the three stages of 
@@ -44,9 +46,6 @@ desc: >
   community cards). 
 
   PLEASE BE AWARE: the computer players are (not) very smart, so play at 
-  your own risk.  
+  your own risk.
 
-  Have Fun! 
-
-
-
+  Have Fun!
